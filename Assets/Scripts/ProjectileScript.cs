@@ -12,7 +12,7 @@ public class ProjectileScript : MonoBehaviour
     [Header("Projectile Stats")]
     private float travelDistance = 12f;
     private int speed = 10;
-    private int damage;
+    private int damage = 10;
 
 
     void Start()
@@ -37,6 +37,21 @@ public class ProjectileScript : MonoBehaviour
 
         if (distanceX >= travelDistance || distanceY >= travelDistance)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Enemy"))
+        {
+            Enemy enemy = col.gameObject.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
             Destroy(gameObject);
         }
     }

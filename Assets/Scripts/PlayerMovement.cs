@@ -13,12 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 previousMousePos;
 
-    private bool hasReachedMouse = false;
-
-    public float moveSpeed = 5f;
+    public float moveSpeed;
     public float offsetAngle = 90f;
-    public float rotationSpeed = 5f;
-    public float reachThreshold = 0.3f;
+    public float rotationSpeed;
+    public float stopRotationThreshold;
 
     void Start()
     {
@@ -44,34 +42,22 @@ public class PlayerMovement : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        if (mousePos != previousMousePos)
-        {
-            hasReachedMouse = false;
+        float distanceToMouse = Vector2.Distance(transform.position, mousePos);
 
+        if (distanceToMouse > stopRotationThreshold)
+        {
             Vector2 direction = (Vector2)mousePos - (Vector2)transform.position;
 
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             targetAngle -= offsetAngle;
 
-            float distanceToMouse = Vector2.Distance(transform.position, mousePos);
-
             float rotationSpeedAdjustment = Mathf.Clamp(distanceToMouse, 0, 1) * rotationSpeed;
 
             rb.rotation = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSpeedAdjustment * Time.deltaTime);
-
-            previousMousePos = mousePos;
         }
         else
         {
-            if (!hasReachedMouse)
-            {
-                float distanceToMouse = Vector2.Distance(transform.position, mousePos);
-
-                if (distanceToMouse <= reachThreshold)
-                {
-                    hasReachedMouse = true;
-                }
-            }
+            return;
         }
     }
 
