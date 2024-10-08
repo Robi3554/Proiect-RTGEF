@@ -1,18 +1,31 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    [SerializeField]
+    private CinemachineVirtualCamera playeCam;
+
+    private Vector3 mousePos;
+    private Vector3 previousMousePos;
+
+    private bool hasReachedMouse = false;
 
     public float moveSpeed = 5f;
     public float offsetAngle = 90f;
     public float rotationSpeed = 5f;
+    public float reachThreshold = 0.3f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        previousMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        previousMousePos.z = 0;
     }
 
     void Update()
@@ -28,19 +41,38 @@ public class PlayerMovement : MonoBehaviour
 
     private void Rotation()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 
-        Vector2 direction = (Vector2)mousePos - (Vector2)transform.position;
+        if (mousePos != previousMousePos)
+        {
+            hasReachedMouse = false;
 
-        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        targetAngle -= offsetAngle;
+            Vector2 direction = (Vector2)mousePos - (Vector2)transform.position;
 
-        float distanceToMouse = Vector2.Distance(transform.position, mousePos);
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            targetAngle -= offsetAngle;
 
-        float rotationSpeedAdjustment = Mathf.Clamp(distanceToMouse, 0, 1) * rotationSpeed;
+            float distanceToMouse = Vector2.Distance(transform.position, mousePos);
 
-        rb.rotation = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSpeedAdjustment * Time.deltaTime);
+            float rotationSpeedAdjustment = Mathf.Clamp(distanceToMouse, 0, 1) * rotationSpeed;
+
+            rb.rotation = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSpeedAdjustment * Time.deltaTime);
+
+            previousMousePos = mousePos;
+        }
+        else
+        {
+            if (!hasReachedMouse)
+            {
+                float distanceToMouse = Vector2.Distance(transform.position, mousePos);
+
+                if (distanceToMouse <= reachThreshold)
+                {
+                    hasReachedMouse = true;
+                }
+            }
+        }
     }
 
     private void Movement()

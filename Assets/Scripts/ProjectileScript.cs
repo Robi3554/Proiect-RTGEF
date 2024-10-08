@@ -6,10 +6,12 @@ public class ProjectileScript : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private float traveDistance;
-    private float xStartPosition;
+    private float xStartPos;
+    private float yStartPos;
 
-    private int speed = 5;
+    [Header("Projectile Stats")]
+    private float travelDistance = 12f;
+    private int speed = 10;
     private int damage;
 
 
@@ -18,10 +20,24 @@ public class ProjectileScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         rb.velocity = transform.up * speed;
+
+        xStartPos = transform.position.x;
+        yStartPos = transform.position.y;
     }
 
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        float distanceX = Mathf.Abs(xStartPos - transform.position.x);
+        float distanceY = Mathf.Abs(yStartPos - transform.position.y);
+
+        if (distanceX >= travelDistance || distanceY >= travelDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 }
