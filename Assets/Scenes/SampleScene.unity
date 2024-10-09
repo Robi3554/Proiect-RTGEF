@@ -910,7 +910,6 @@ MonoBehaviour:
   lr: {fileID: 240710431}
   fireRate: 0.5
   fadeTime: 0.02
-  damage: 10
 --- !u!1 &1399393149
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,8 +923,9 @@ GameObject:
   - component: {fileID: 1399393151}
   - component: {fileID: 1399393154}
   - component: {fileID: 1399393150}
+  - component: {fileID: 1399393155}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,8 +943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0597616a5e9b08469e2a34d37f94145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playeCam: {fileID: 0}
-  moveSpeed: 10
   offsetAngle: 90
   rotationSpeed: 1000
   stopRotationThreshold: 1
@@ -1066,3 +1064,16 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
+--- !u!114 &1399393155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399393149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7657cd90552e74780457d662e5ccdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}

@@ -5,34 +5,36 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private Transform firePoint;
+    private PlayerStats ps;
 
     public GameObject projectile;
-
     public LineRenderer lr;
 
     private float nextFireTime;
+    private float damage;
 
     public float fireRate;
-
     public float fadeTime;
 
-    public int damage;
+    private void Awake()
+    {
+        ps = GetComponentInParent<PlayerStats>();
+    }
 
     void Start()
     {
         firePoint = gameObject.transform;
+        damage = ps.damage;
     }
 
     private void Update()
     {
-        //if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
-        //{
-        //    nextFireTime = Time.time + fireRate;
-        //    Shoot();
-        //}
-
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
+            nextFireTime = Time.time + fireRate;
+
+            //Shoot();
+
             StartCoroutine(Shoot());
         }
     }
@@ -44,7 +46,6 @@ public class Weapon : MonoBehaviour
 
     public IEnumerator Shoot()
     {
-        Debug.Log("Shoot");
         RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.up);
 
         if (hit)

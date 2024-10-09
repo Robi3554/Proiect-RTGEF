@@ -7,23 +7,26 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField]
-    private CinemachineVirtualCamera playeCam;
+    private PlayerStats ps;
 
     private Vector3 mousePos;
-    private Vector3 previousMousePos;
 
-    public float moveSpeed;
+    private float moveSpeed;
+
     public float offsetAngle = 90f;
     public float rotationSpeed;
     public float stopRotationThreshold;
 
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
-        previousMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        previousMousePos.z = 0;
+        ps = GetComponent<PlayerStats>();
+    }
+
+    void Start()
+    {
+        moveSpeed = ps.moveSpeed;
     }
 
     void Update()
