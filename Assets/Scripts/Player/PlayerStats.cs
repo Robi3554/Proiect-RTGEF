@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     internal float fireRate;
     internal float damage;
 
-    void Start()
+    void Awake()
     {
         health = playerSO.health;
         moveSpeed = playerSO.moveSpeed;
