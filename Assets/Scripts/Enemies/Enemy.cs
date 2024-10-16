@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public float health;
 
+    public float damage;
+
 
     void Start()
     {
@@ -24,6 +26,14 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if(col.transform.tag == "Player")
+        {
+            col.gameObject.GetComponent<PlayerStats>().LoseHealth(damage);
         }
     }
 }
