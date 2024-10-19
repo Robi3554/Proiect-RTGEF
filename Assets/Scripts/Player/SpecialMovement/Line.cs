@@ -6,24 +6,19 @@ public class Line : MonoBehaviour
 {
     private LineRenderer lr;
 
-    private Vector3[] segemntV; 
+    private Vector3[] segemntV;
+
+    private int length;
 
     public Transform targetDir;
 
     public Vector3[] segemntPoses;
 
-    public int length;
-
     [Header("Var for line")]
     public float targetDist;
     public float smoothSpeed;
 
-    [Header("Wiggle")]
-    public float wiggleSpeed;
-    public float wiggleMagnitude;
-    public Transform wiggleDir;
-
-    public GameObject[] bodyParts;
+    public List<GameObject> bodyParts;
 
     private void Awake()
     {
@@ -32,17 +27,17 @@ public class Line : MonoBehaviour
 
     void Start()
     {
-        lr.positionCount = length;
-
-        segemntPoses = new Vector3[length];
-        segemntV = new Vector3[length];
+        CheckLength();
 
         ResetPos();
     }
 
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire2"))
+        {
+            AddBodyPart();
+        }
     }
 
     private void FixedUpdate()
@@ -50,10 +45,18 @@ public class Line : MonoBehaviour
         LineFunction();
     }
 
+    private void CheckLength()
+    {
+        length = bodyParts.Count + 1;
+
+        lr.positionCount = length;
+
+        segemntPoses = new Vector3[length];
+        segemntV = new Vector3[length];
+    }
+
     private void LineFunction()
     {
-        wiggleDir.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.time * wiggleSpeed) * wiggleMagnitude);
-
         segemntPoses[0] = targetDir.position;
 
         for (int i = 1; i < segemntPoses.Length; i++)
@@ -61,7 +64,7 @@ public class Line : MonoBehaviour
             Vector3 targetPos = segemntPoses[i - 1] + (segemntPoses[i] - segemntPoses[i - 1]).normalized * targetDist;
             segemntPoses[i] = Vector3.SmoothDamp(segemntPoses[i], targetPos, ref segemntV[i], smoothSpeed);
 
-            if (i - 1 < bodyParts.Length)
+            if (i - 1 < bodyParts.Count)
             {
                 bodyParts[i - 1].transform.position = segemntPoses[i];
             }
@@ -78,5 +81,14 @@ public class Line : MonoBehaviour
             segemntPoses[i] = segemntPoses[i - 1] + targetDir.right * targetDist;
         }
         lr.SetPositions(segemntPoses);
+    }
+
+    private void AddBodyPart()
+    {
+        GameObject addedBodyPart = Instantiate(bodyParts[0], transform.position, Quaternion.identity);
+
+        bodyParts.Add(addedBodyPart);
+
+        CheckLength();
     }
 }
