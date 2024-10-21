@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 5284170330604202225}
   - component: {fileID: 5284170330604201996}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerHitScan
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5284170330882592416}
-  - component: {fileID: 5284170330882592447}
+  - component: {fileID: 9025896330806040735}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -336,7 +336,7 @@ Transform:
   m_Father: {fileID: 5284170330604201998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5284170330882592447
+--- !u!114 &9025896330806040735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,10 +345,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5284170330882592417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793cbcc526bfcc8449b7a12071e56704, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3c940b95f15a04fa3e223cc746b908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8356338289090160391, guid: 34566166639bfca4389cada3f70d7e03, type: 3}
-  lr: {fileID: 5284170330018123920}
   fireRate: 0.5
+  lr: {fileID: 5284170330018123920}
   fadeTime: 0.02

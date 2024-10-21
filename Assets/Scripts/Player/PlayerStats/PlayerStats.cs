@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public PlayerScriptableObject playerSO;
+    [SerializeField]
+    private PlayerScriptableObject playerSO;
 
     [Header("Player Stats")]
     internal float maxHealth;
@@ -24,20 +25,20 @@ public class PlayerStats : MonoBehaviour
 
     [Header("IFrames")]
     [SerializeField]
-    private Color flashColor;
+    protected Color flashColor;
     [SerializeField]
-    private Color regularColor;
+    protected Color regularColor;
     [SerializeField]
-    private float flashDuration;
+    protected float flashDuration;
     [SerializeField]
-    private int numberOfFlashes;
-    private SpriteRenderer sr;
+    protected int numberOfFlashes;
+    protected SpriteRenderer sr;
 
-    private float currentHealth;
+    protected float currentHealth;
 
-    private bool canLoseHealth = true;
+    protected bool canLoseHealth = true;
 
-    void Awake()
+    protected virtual void Awake()
     {
         sr = GetComponentInParent<SpriteRenderer>();
 
@@ -47,7 +48,7 @@ public class PlayerStats : MonoBehaviour
         damage = playerSO.damage; 
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         currentHealth = maxHealth;
 
@@ -56,7 +57,7 @@ public class PlayerStats : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         healthBar.SetMaxHealth(maxHealth);
 
@@ -83,7 +84,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private IEnumerator IFrames()
+    protected virtual IEnumerator IFrames()
     {
         int temp = 0;
         canLoseHealth = false;
@@ -98,7 +99,7 @@ public class PlayerStats : MonoBehaviour
         canLoseHealth = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         StopCoroutine(IFrames());
     }

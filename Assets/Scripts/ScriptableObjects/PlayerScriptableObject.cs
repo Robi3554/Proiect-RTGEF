@@ -9,7 +9,7 @@ public class PlayerScriptableObject : ScriptableObject
     public float health;
     public float moveSpeed;
 
-    [Header("Weapin Stats")]
+    [Header("Weapon Stats")]
     public float damage;
     public float fireRate;
 }

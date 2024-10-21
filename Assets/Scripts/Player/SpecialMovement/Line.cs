@@ -47,12 +47,29 @@ public class Line : MonoBehaviour
 
     private void CheckLength()
     {
-        length = bodyParts.Count + 1;
+        Vector3[] oldSegmentPoses = null;
 
-        lr.positionCount = length;
+        if (segemntPoses != null && segemntPoses.Length > 0)
+        {
+            oldSegmentPoses = new Vector3[segemntPoses.Length];
+            for (int i = 0; i < segemntPoses.Length; i++)
+            {
+                oldSegmentPoses[i] = segemntPoses[i];
+            }
+        }
+
+        length = bodyParts.Count + 1;
 
         segemntPoses = new Vector3[length];
         segemntV = new Vector3[length];
+
+        if (oldSegmentPoses != null)
+        {
+            for (int i = 0; i < oldSegmentPoses.Length; i++)
+            {
+                segemntPoses[i] = oldSegmentPoses[i];
+            }
+        }
     }
 
     private void LineFunction()

@@ -10,9 +10,10 @@ public class ProjectileScript : MonoBehaviour
     private float yStartPos;
 
     [Header("Projectile Stats")]
-    private float travelDistance = 12f;
-    private int speed = 10;
-    private int damage = 10;
+    [SerializeField]
+    private float travelDistance;
+    private float speed;
+    private float damage;
 
 
     void Start()
@@ -23,11 +24,6 @@ public class ProjectileScript : MonoBehaviour
 
         xStartPos = transform.position.x;
         yStartPos = transform.position.y;
-    }
-
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -54,5 +50,11 @@ public class ProjectileScript : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void FireProjectile(float damage, float speed)
+    {
+        this.damage = damage;
+        this.speed = speed;
     }
 }
