@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba213265565b45a48b73c21bb8032aea, type: 3}
   m_Name: Projectile Player Data
   m_EditorClassIdentifier: 
-  health: 100
-  moveSpeed: 15
-  damage: 10
-  fireRate: 0.5
-  projectileSpeed: 15
+  projectileSpeed: 30

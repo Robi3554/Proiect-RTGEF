@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicWeapon : MonoBehaviour
+public class BodyPartWeapon : MonoBehaviour
 {
     protected Transform firePoint;
     protected PlayerStats ps;
@@ -29,7 +29,7 @@ public class BasicWeapon : MonoBehaviour
         {
             nextFireTime = Time.time + fireRate;
 
-            Shoot();       
+            Shoot();
         }
     }
 

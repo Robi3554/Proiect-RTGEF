@@ -300,8 +300,8 @@ MonoBehaviour:
   playerSO: {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}
   healthBar: {fileID: 0}
   text: {fileID: 0}
-  flashColor: {r: 1, g: 1, b: 1, a: 0.60784316}
-  regularColor: {r: 1, g: 0.99433964, b: 0.99433964, a: 1}
+  flashColor: {r: 0, g: 1, b: 0.98039216, a: 0.60784316}
+  regularColor: {r: 0, g: 1, b: 0.98039216, a: 1}
   flashDuration: 0.1
   numberOfFlashes: 5
 --- !u!1 &5284170330882592417
