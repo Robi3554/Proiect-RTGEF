@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerScriptableObject playerSO;
-
     [Header("Player Stats")]
     internal float maxHealth;
     internal float moveSpeed;
@@ -41,15 +38,13 @@ public class PlayerStats : MonoBehaviour
     protected virtual void Awake()
     {
         sr = GetComponentInParent<SpriteRenderer>();
-
-        maxHealth = playerSO.health;
-        moveSpeed = playerSO.moveSpeed;
-        fireRate = playerSO.fireRate;
-        damage = playerSO.damage; 
     }
 
     protected virtual void Start()
     {
+        maxHealth = PlayerStatsManager.Instance.health;
+        moveSpeed = PlayerStatsManager.Instance.moveSpeed;
+
         currentHealth = maxHealth;
 
         healthBar.SetMaxHealth(maxHealth);

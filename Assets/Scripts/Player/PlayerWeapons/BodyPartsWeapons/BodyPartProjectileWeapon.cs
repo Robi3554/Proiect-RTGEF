@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class BodyPartProjectileWeapon : BodyPartWeapon
 {
-    private ProjectilePlayerStats pps;
-
     public GameObject projectile;
+
+    protected float projectileSpeed;
 
     protected override void Awake()
     {
         base.Awake();
+    }
 
-        pps = GetComponentInParent<ProjectilePlayerStats>();
+    protected override void Start()
+    {
+        base.Start();
+
+        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed;
     }
 
     protected override void Shoot()
@@ -21,6 +26,6 @@ public class BodyPartProjectileWeapon : BodyPartWeapon
 
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(ps.damage, pps.projectileSpeed);
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(damage, projectileSpeed);
     }
 }

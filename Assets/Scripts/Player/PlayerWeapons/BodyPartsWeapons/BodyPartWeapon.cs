@@ -2,39 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyPartWeapon : MonoBehaviour
+public class BodyPartWeapon : BasicWeapon
 {
-    protected Transform firePoint;
-    protected PlayerStats ps;
-
-    protected float nextFireTime;
-    protected float damage;
-
-    public float fireRate;
-
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        ps = GetComponentInParent<PlayerStats>();
+        base.Awake();
     }
 
-    protected virtual void Start()
+    protected override void Start()
     {
-        firePoint = gameObject.transform;
-        damage = ps.damage;
+        base.Start();
     }
 
-    protected virtual void Update()
+    protected override void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
-        {
-            nextFireTime = Time.time + fireRate;
-
-            Shoot();
-        }
-    }
-
-    protected virtual void Shoot()
-    {
-
+        base.Update();
     }
 }

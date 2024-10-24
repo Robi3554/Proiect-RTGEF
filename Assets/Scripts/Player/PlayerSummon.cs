@@ -9,11 +9,14 @@ public class PlayerSummon : MonoBehaviour
 
     public GameObject objToSummon;
 
-    private int timeBetweenSummons = 2;
-    private int nrOfMinions = 3;
+    private float timeBetweenSummons = 2;
+    private int maxNrOfMinions = 3;
 
     void Start()
     {
+        timeBetweenSummons = PlayerStatsManager.Instance.timeBetweenSummons;
+        maxNrOfMinions = PlayerStatsManager.Instance.maxNrOfMinions;
+
         StartCoroutine(Summoning());
 
         Minion.OnMinionDestroyed += OnMinionDestroyed;
@@ -31,7 +34,7 @@ public class PlayerSummon : MonoBehaviour
 
     private IEnumerator Summoning()
     {
-        for (int i = 0; i < nrOfMinions; i++)
+        for (int i = 0; i < maxNrOfMinions; i++)
         {
             InstantiateMinion(i);
             yield return new WaitForSeconds(timeBetweenSummons);

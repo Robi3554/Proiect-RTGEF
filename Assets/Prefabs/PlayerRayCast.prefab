@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 5284170330604202225}
   - component: {fileID: 5284170330604201996}
   m_Layer: 0
-  m_Name: PlayerHitScan
+  m_Name: PlayerRayCast
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7657cd90552e74780457d662e5ccdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}
+  playerName: playerRayCast
   healthBar: {fileID: 0}
   text: {fileID: 0}
   flashColor: {r: 0, g: 1, b: 0.98039216, a: 0.60784316}

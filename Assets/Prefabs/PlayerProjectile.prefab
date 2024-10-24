@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 7097043317819145594}
   - component: {fileID: 7097043317819145595}
   - component: {fileID: 604275650146017655}
-  - component: {fileID: 6231185291491866444}
+  - component: {fileID: 8132399446051706985}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: Player
@@ -199,7 +199,7 @@ MonoBehaviour:
   offsetAngle: 90
   rotationSpeed: 100
   stopRotationThreshold: 1
---- !u!114 &6231185291491866444
+--- !u!114 &8132399446051706985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,14 +208,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7097043317819145596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cff8be189368c445bbae03cc3060769, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7657cd90552e74780457d662e5ccdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}
   healthBar: {fileID: 0}
   text: {fileID: 0}
   flashColor: {r: 1, g: 0, b: 0, a: 0.60784316}
   regularColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
   numberOfFlashes: 5
-  pPlayerSO: {fileID: 11400000, guid: dd123b711b2b6f04884c3a8aeadf6236, type: 2}

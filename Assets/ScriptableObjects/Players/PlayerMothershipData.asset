@@ -9,7 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba213265565b45a48b73c21bb8032aea, type: 3}
-  m_Name: Projectile Player Data
+  m_Script: {fileID: 11500000, guid: 44a10f0dbe7e5e54cab444c4d5b18d40, type: 3}
+  m_Name: PlayerMothershipData
   m_EditorClassIdentifier: 
-  projectileSpeed: 30
+  playerName: Player Mothership
+  health: 200
+  moveSpeed: 10
+  damage: 10
+  fireRate: 0.5
+  range: 30
+  maxNrOfMinions: 3
+  timeBetweenSummons: 3
+  projectileSpeed: 20

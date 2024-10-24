@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data/Base Data")]
 public class PlayerScriptableObject : ScriptableObject
 {
+    public string playerName;
+
     [Header("Player Stats")]
     public float health;
     public float moveSpeed;
@@ -12,4 +14,12 @@ public class PlayerScriptableObject : ScriptableObject
     [Header("Weapon Stats")]
     public float damage;
     public float fireRate;
+    public float range;
+
+    [Header("For Summoners")]
+    public int maxNrOfMinions;
+    public float timeBetweenSummons;
+
+    [Header("For Porjectiles")]
+    public float projectileSpeed;
 }

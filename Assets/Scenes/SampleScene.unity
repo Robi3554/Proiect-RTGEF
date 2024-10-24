@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5899301371210386844, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6985571953595971875, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_RootOrder
@@ -327,8 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 0.5
-  m_YDamping: 0.5
+  m_XDamping: 0
+  m_YDamping: 0
   m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -1012,7 +1012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &673786260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,17 +1155,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 673786258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cff8be189368c445bbae03cc3060769, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7657cd90552e74780457d662e5ccdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}
   healthBar: {fileID: 419110716}
   text: {fileID: 776749320}
   flashColor: {r: 1, g: 1, b: 1, a: 0.60784316}
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.1
   numberOfFlashes: 5
-  pPlayerSO: {fileID: 11400000, guid: dd123b711b2b6f04884c3a8aeadf6236, type: 2}
 --- !u!1 &753909458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18.9, y: 1.9138}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 44.2275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776749320
@@ -2091,7 +2089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2020517278
 Transform:
   m_ObjectHideFlags: 0
@@ -2120,7 +2118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7657cd90552e74780457d662e5ccdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}
   healthBar: {fileID: 419110716}
   text: {fileID: 776749320}
   flashColor: {r: 1, g: 1, b: 1, a: 0.60784316}
@@ -2262,6 +2259,55 @@ MonoBehaviour:
   - {fileID: 1465510263}
   - {fileID: 85925687}
   objToSummon: {fileID: 1148382314477721855, guid: 6a8c6327c963cc14694597f7ff1a399e, type: 3}
+--- !u!1 &2030077403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030077405}
+  - component: {fileID: 2030077404}
+  m_Layer: 0
+  m_Name: PlayerStatsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2030077404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030077403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817da4eded961cf49abfeb87ef18b684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatsList:
+  - {fileID: 11400000, guid: 4442d8bb65e3ac648ac152f9f14aab57, type: 2}
+  - {fileID: 11400000, guid: 1f6ef7d4beb7bc948ab0161e167b3d2f, type: 2}
+  - {fileID: 11400000, guid: 726270a652bbaa349a8fbeb7e980c197, type: 2}
+  - {fileID: 11400000, guid: 17ef91c4db673b244a0c85fb26b37190, type: 2}
+--- !u!4 &2030077405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030077403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146547759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330604202226, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_Name
-      value: Player HitScan
+      value: Player RayCast
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330604202226, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_Layer
@@ -2451,14 +2497,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 6231185291491866444, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 776749320}
-    - target: {fileID: 6231185291491866444, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 419110716}
     - target: {fileID: 7097043317819145592, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2515,5 +2553,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8132399446051706985, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 776749320}
+    - target: {fileID: 8132399446051706985, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 419110716}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d64c986b0628cc429eca79933bba310, type: 3}

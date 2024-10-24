@@ -5,22 +5,21 @@ using UnityEngine;
 public class BasicWeapon : MonoBehaviour
 {
     protected Transform firePoint;
-    protected PlayerStats ps;
 
     protected float nextFireTime;
     protected float damage;
-
-    public float fireRate;
+    protected float fireRate;
 
     protected virtual void Awake()
     {
-        ps = GetComponentInParent<PlayerStats>();
+
     }
 
     protected virtual void Start()
     {
         firePoint = gameObject.transform;
-        damage = ps.damage;
+        damage = PlayerStatsManager.Instance.damage;
+        fireRate = PlayerStatsManager.Instance.fireRate;
     }
 
     protected virtual void Update()
