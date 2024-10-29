@@ -17,6 +17,10 @@ public class Minion : MonoBehaviour
     public delegate void MinionDestroyedHandler();
     public static event MinionDestroyedHandler OnMinionDestroyed;
 
+    [Header("For Hunting")]
+    private Transform targetEnemy;
+    private bool isAtEnemy = false;
+
     [Header("Minion Stats")]
     private float moveSpeed;
     private float stoppingDistance = 0.1f;
@@ -33,16 +37,38 @@ public class Minion : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void Start()
     {
         moveSpeed = PlayerStatsManager.Instance.moveSpeed * minionModifier;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, (firePoint.position - transform.position).normalized, rayCastRange);
     }
 
     private void FixedUpdate()
     {
-        if (targetSpot != null && !isFollowingEnemy)
+        if (isFollowingEnemy && targetEnemy != null)
+        {
+            int layerMask = 1 << LayerMask.NameToLayer("Enemy");
+
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (targetEnemy.position - firePoint.position).normalized, rayCastRange, layerMask);
+
+            if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+            {
+                Debug.Log("HIT!");
+                isAtEnemy = true;
+                rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                isAtEnemy = false;
+            }
+
+            if (!isAtEnemy)
+            {
+                FollowTarget(targetEnemy);
+            }
+
+            RotateTowardsTargetEnemy();
+        }
+        else if (targetSpot != null)
         {
             if (!isAtPoint)
             {
@@ -50,7 +76,7 @@ public class Minion : MonoBehaviour
             }
             else
             {
-                FollowTargetSpot();
+                FollowTarget(targetSpot);
             }
 
             RotateTowardsMainShip();
@@ -69,16 +95,30 @@ public class Minion : MonoBehaviour
         }
     }
 
-    private void FollowTargetSpot()
+    private void FollowTarget(Transform target)
     {
-        Vector2 newPosition = Vector2.MoveTowards(rb.position, targetSpot.position, followSpeed);
+        Vector2 newPosition = Vector2.MoveTowards(rb.position, target.position, followSpeed);
 
         rb.MovePosition(newPosition);
     }
 
-    private void MoveTowardsTargetEnemy()
+    private void RotateTowardsTargetEnemy()
     {
+        Vector2 directionToEnemy = (targetEnemy.position - transform.position).normalized;
 
+        float targetAngle = Mathf.Atan2(directionToEnemy.y, directionToEnemy.x) * Mathf.Rad2Deg -90;
+        float currentAngle = rb.rotation;
+
+        float angleDifference = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+        float maxAngularSpeed = 500f;
+
+        rb.angularVelocity = Mathf.Clamp(angleDifference * 8f, -maxAngularSpeed, maxAngularSpeed);
+
+        if (Mathf.Abs(angleDifference) < 1f)
+        {
+            rb.angularVelocity = 0f;
+        }
     }
 
     private void RotateTowardsMainShip()
@@ -86,29 +126,25 @@ public class Minion : MonoBehaviour
         float targetAngle = mainShip.eulerAngles.z;
         float currentAngle = rb.rotation;
 
-        // Calculate the shortest direction to rotate
         float angleDifference = Mathf.DeltaAngle(currentAngle, targetAngle);
-        float maxRotationSpeed = 200f * Time.fixedDeltaTime; // Ensure it's frame-rate independent
 
-        // Determine the rotation step
-        float rotationStep = Mathf.Clamp(angleDifference, -maxRotationSpeed, maxRotationSpeed);
+        float maxAngularSpeed = 500f;
 
-        // Apply the rotation
-        rb.rotation = currentAngle + rotationStep;
+        rb.angularVelocity = Mathf.Clamp(angleDifference * 6f, -maxAngularSpeed, maxAngularSpeed);
 
-        // Optional: Snap directly to the target angle if very close
-        if (Mathf.Abs(angleDifference) < 0.1f)
+        if (Mathf.Abs(angleDifference) < 1f)
         {
-            rb.rotation = targetAngle;
+            rb.angularVelocity = 0f;
         }
     }
-
 
     private void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
             isFollowingEnemy = true;
+
+            targetEnemy = col.gameObject.transform;
         }
     }
 

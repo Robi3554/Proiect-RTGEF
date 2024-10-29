@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5899301371210386844, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6985571953595971875, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_RootOrder
@@ -160,11 +160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6985571953595971875, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1000.78564
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6985571953595971875, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1000.10803
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6985571953595971875, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 361419721}
   - component: {fileID: 361419720}
   - component: {fileID: 361419718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -141,7 +141,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10
 --- !u!114 &8162950485792415810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,10 +160,7 @@ MonoBehaviour:
   cc: {fileID: 3387877344785370434}
   followSpeed: 0.5
   minionModifier: 0.5
-  rayCastRange: 3
-  stopRotationThreshold: 1
-  offsetAngle: 90
-  rotationSpeed: 100
+  rayCastRange: 4
 --- !u!1 &5211049739153695081
 GameObject:
   m_ObjectHideFlags: 0

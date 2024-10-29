@@ -16,7 +16,7 @@ MonoBehaviour:
   health: 200
   moveSpeed: 10
   damage: 10
-  fireRate: 0.5
+  fireRate: 0.6
   range: 30
   maxNrOfMinions: 3
   timeBetweenSummons: 3
