@@ -8,6 +8,8 @@ public class TurretRotation : MonoBehaviour
 
     public float rotationSpeed;
 
+    private bool isLockedOn = false;
+
     void Start()
     {
 
@@ -43,19 +45,37 @@ public class TurretRotation : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, parentRotation, rotationSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private IEnumerator ShootingStart()
     {
-        if (other.CompareTag("Enemy"))
+        yield return new WaitForSeconds(1);
+
+        isLockedOn = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Enemy"))
         {
-            enemyTransform = other.transform;
+            enemyTransform = col.transform;
+            StartCoroutine(ShootingStart());
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    protected virtual void OnTriggerStay2D(Collider2D col)
     {
-        if (other.CompareTag("Enemy"))
+        if (col.gameObject.CompareTag("Enemy") && isLockedOn)
+        {
+            BroadcastMessage("OnParentStay2D", col, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Enemy"))
         {
             enemyTransform = null;
+            StopCoroutine(ShootingStart());
+            isLockedOn = false;
         }
     }
 }

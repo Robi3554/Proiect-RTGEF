@@ -22,10 +22,13 @@ public class BodyPartProjectileWeapon : BodyPartWeapon
 
     protected override void Shoot()
     {
-        base.Shoot();
-
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
         shotProjectile.GetComponent<ProjectileScript>().FireProjectile(damage, projectileSpeed);
+    }
+
+    protected override void OnParentStay2D(Collider2D col)
+    {
+        base.OnParentStay2D(col);   
     }
 }

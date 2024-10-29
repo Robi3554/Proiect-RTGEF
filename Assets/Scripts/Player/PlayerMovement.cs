@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private PlayerStats ps;
 
     private Vector3 mousePos;
 
@@ -20,13 +19,11 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        ps = GetComponent<PlayerStats>();
     }
 
     void Start()
     {
-        moveSpeed = ps.moveSpeed;
+        moveSpeed = PlayerStatsManager.Instance.moveSpeed;
     }
 
     void Update()

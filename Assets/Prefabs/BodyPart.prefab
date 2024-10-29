@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8555668043005907005}
   - component: {fileID: 29877487695792421}
+  - component: {fileID: 92879426897448776}
   - component: {fileID: 4642768592280192869}
   m_Layer: 0
   m_Name: RotatePoint
@@ -81,6 +82,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 6
+--- !u!50 &92879426897448776
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3051376252919676974}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &4642768592280192869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53676365241968180}
   - component: {fileID: 1733861391027713226}
+  - component: {fileID: 4520477272263695545}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -279,3 +302,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4520477272263695545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988014714108337256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767da7e62201e1b4ab1167cd9525d02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 974857926314806376}
+  projectile: {fileID: 8356338289090160391, guid: 34566166639bfca4389cada3f70d7e03, type: 3}
