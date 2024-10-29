@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1148382314477721729}
   - component: {fileID: 1148382314477721854}
   - component: {fileID: 8190603136320210463}
+  - component: {fileID: 5101782968735527188}
   - component: {fileID: 3387877344785370434}
   - component: {fileID: 8162950485792415810}
   m_Layer: 7
@@ -109,7 +110,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &3387877344785370434
+--- !u!58 &5101782968735527188
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,6 +126,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &3387877344785370434
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148382314477721855}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6
 --- !u!114 &8162950485792415810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +155,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpot: {fileID: 0}
-  speed: 0.5
+  mainShip: {fileID: 0}
+  firePoint: {fileID: 1583185810413818090}
+  cc: {fileID: 3387877344785370434}
+  followSpeed: 0.5
+  minionModifier: 0.5
+  rayCastRange: 3
+  stopRotationThreshold: 1
+  offsetAngle: 90
+  rotationSpeed: 100
 --- !u!1 &5211049739153695081
 GameObject:
   m_ObjectHideFlags: 0

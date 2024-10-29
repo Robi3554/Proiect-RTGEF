@@ -27,11 +27,6 @@ public class PlayerSummon : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
-    {
-        DestroyMinion();
-    }
-
     private IEnumerator Summoning()
     {
         for (int i = 0; i < maxNrOfMinions; i++)
@@ -51,17 +46,8 @@ public class PlayerSummon : MonoBehaviour
             if (movementScript != null)
             {
                 movementScript.targetSpot = spots[index];
+                movementScript.mainShip = transform;
             }
-        }
-    }
-
-    private void DestroyMinion()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject minion = GameObject.FindGameObjectWithTag("PlayerMinion");
-
-            Destroy(minion);
         }
     }
 
