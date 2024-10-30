@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicWeapon : MonoBehaviour
 {
-    protected Transform firePoint;
+    public Transform firePoint;
 
     protected float nextFireTime;
     protected float damage;
@@ -18,22 +18,22 @@ public class BasicWeapon : MonoBehaviour
     protected virtual void Start()
     {
         firePoint = gameObject.transform;
-        damage = PlayerStatsManager.Instance.damage;
-        fireRate = PlayerStatsManager.Instance.fireRate;
+        GetStats();
     }
 
     protected virtual void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
-        {
-            nextFireTime = Time.time + fireRate;
-
-            Shoot();       
-        }
+        
     }
 
     protected virtual void Shoot()
     {
 
+    }
+
+    protected virtual void GetStats()
+    {
+        damage = PlayerStatsManager.Instance.damage;
+        fireRate = PlayerStatsManager.Instance.fireRate;
     }
 }

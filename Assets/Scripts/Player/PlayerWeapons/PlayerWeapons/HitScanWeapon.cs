@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitScanWeapon : BasicWeapon
+public class HitScanWeapon : PlayerBasicWeapon
 {
     public LineRenderer lr;
 
@@ -12,7 +12,7 @@ public class HitScanWeapon : BasicWeapon
     {
         if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
-            nextFireTime = Time.time + fireRate;
+            nextFireTime = Time.time + (1 / fireRate);
 
             StartCoroutine(Shoot());
         }

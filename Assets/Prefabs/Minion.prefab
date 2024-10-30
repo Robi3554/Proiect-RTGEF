@@ -154,11 +154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f0d58831addfb4f87004a3057df1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 8356338289090160391, guid: 34566166639bfca4389cada3f70d7e03, type: 3}
   targetSpot: {fileID: 0}
   mainShip: {fileID: 0}
   firePoint: {fileID: 1583185810413818090}
-  cc: {fileID: 3387877344785370434}
-  followSpeed: 0.5
+  followSpeed: 0.2
   minionModifier: 0.5
   rayCastRange: 4
 --- !u!1 &5211049739153695081

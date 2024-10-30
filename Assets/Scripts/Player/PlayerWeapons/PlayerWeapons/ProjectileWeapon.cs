@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileWeapon : BasicWeapon
+public class ProjectileWeapon : PlayerBasicWeapon
 {
     protected float projectileSpeed;
 
@@ -16,8 +16,6 @@ public class ProjectileWeapon : BasicWeapon
     protected override void Start()
     {
         base.Start();
-
-        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed;
     }
 
     protected override void Shoot()
@@ -27,5 +25,12 @@ public class ProjectileWeapon : BasicWeapon
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
         shotProjectile.GetComponent<ProjectileScript>().FireProjectile(damage, projectileSpeed);
+    }
+
+    protected override void GetStats()
+    {
+        base.GetStats();
+
+        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed;
     }
 }

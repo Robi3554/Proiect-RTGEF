@@ -5,20 +5,24 @@ using UnityEngine;
 
 public class Minion : MonoBehaviour
 {
+    public GameObject projectile;
+
     public Transform targetSpot;
     public Transform mainShip;
 
     public Transform firePoint;
-
-    public CircleCollider2D cc;
 
     private Rigidbody2D rb;
 
     public delegate void MinionDestroyedHandler();
     public static event MinionDestroyedHandler OnMinionDestroyed;
 
-    [Header("For Hunting")]
+    [Header("For Shooting")]
     private Transform targetEnemy;
+    protected float nextFireTime;
+    private float damage;
+    private float fireRate;
+    private float projectileSpeed;
     private bool isAtEnemy = false;
 
     [Header("Minion Stats")]
@@ -40,6 +44,9 @@ public class Minion : MonoBehaviour
     private void Start()
     {
         moveSpeed = PlayerStatsManager.Instance.moveSpeed * minionModifier;
+        damage = PlayerStatsManager.Instance.damage * minionModifier;
+        fireRate = PlayerStatsManager.Instance.fireRate * minionModifier;
+        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed * minionModifier;
     }
 
     private void FixedUpdate()
@@ -52,9 +59,15 @@ public class Minion : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             {
-                Debug.Log("HIT!");
                 isAtEnemy = true;
                 rb.velocity = Vector2.zero;
+
+                if (Time.time >= nextFireTime)
+                {
+                    nextFireTime = Time.time + (1 / fireRate);
+
+                    Shoot();
+                }
             }
             else
             {
@@ -81,6 +94,18 @@ public class Minion : MonoBehaviour
 
             RotateTowardsMainShip();
         }
+
+        if (Vector2.Distance(transform.position, targetSpot.position) > stoppingDistance)
+        {
+            isAtPoint = false;
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
+
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(damage, projectileSpeed);
     }
 
     private void MoveTowardsTargetSpot()

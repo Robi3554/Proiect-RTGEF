@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyPartWeapon : BasicWeapon
+public class PlayerBasicWeapon : BasicWeapon
 {
     protected override void Awake()
     {
@@ -19,13 +19,18 @@ public class BodyPartWeapon : BasicWeapon
         base.Shoot();
     }
 
-    protected virtual void OnParentStay2D(Collider2D col)
+    protected override void Update()
     {
-        if (Time.time >= nextFireTime)
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + (1 / fireRate);
 
             Shoot();
         }
+    }
+
+    protected override void GetStats()
+    {
+        base.GetStats();
     }
 }
