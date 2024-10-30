@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicWeapon : MonoBehaviour
@@ -18,7 +19,18 @@ public class BasicWeapon : MonoBehaviour
     protected virtual void Start()
     {
         firePoint = gameObject.transform;
+
         GetStats();
+
+
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged += GetStats;
+        }
+        else
+        {
+            Debug.LogError("PlayerStatsManager.Instance is null in Start!");
+        }
     }
 
     protected virtual void Update()
@@ -35,5 +47,13 @@ public class BasicWeapon : MonoBehaviour
     {
         damage = PlayerStatsManager.Instance.damage;
         fireRate = PlayerStatsManager.Instance.fireRate;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged -= GetStats;
+        }
     }
 }

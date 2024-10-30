@@ -16,8 +16,6 @@ public class BodyPartProjectileWeapon : BodyPartWeapon
     protected override void Start()
     {
         base.Start();
-
-        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed;
     }
 
     protected override void Shoot()
@@ -30,5 +28,12 @@ public class BodyPartProjectileWeapon : BodyPartWeapon
     protected override void OnParentStay2D(Collider2D col)
     {
         base.OnParentStay2D(col);   
+    }
+
+    protected override void GetStats()
+    {
+        base.GetStats();
+
+        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed;
     }
 }

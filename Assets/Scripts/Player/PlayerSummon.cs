@@ -14,17 +14,20 @@ public class PlayerSummon : MonoBehaviour
 
     void Start()
     {
-        timeBetweenSummons = PlayerStatsManager.Instance.timeBetweenSummons;
-        maxNrOfMinions = PlayerStatsManager.Instance.maxNrOfMinions;
+        GetStats();
 
         StartCoroutine(Summoning());
 
         Minion.OnMinionDestroyed += OnMinionDestroyed;
-    }
 
-    void Update()
-    {
-        
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged += GetStats;
+        }
+        else
+        {
+            Debug.LogError("PlayerStatsManager.Instance is null in Start!");
+        }
     }
 
     private IEnumerator Summoning()
@@ -51,6 +54,12 @@ public class PlayerSummon : MonoBehaviour
         }
     }
 
+    private void GetStats()
+    {
+        timeBetweenSummons = PlayerStatsManager.Instance.timeBetweenSummons;
+        maxNrOfMinions = PlayerStatsManager.Instance.maxNrOfMinions;
+    }
+
     private void OnMinionDestroyed()
     {
         StartCoroutine(Summoning());
@@ -59,6 +68,11 @@ public class PlayerSummon : MonoBehaviour
     private void OnDestroy()
     {
         Minion.OnMinionDestroyed -= OnMinionDestroyed;
+
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged -= GetStats;
+        }
 
         StopCoroutine(Summoning());
     }

@@ -42,14 +42,27 @@ public class PlayerStats : MonoBehaviour
 
     protected virtual void Start()
     {
-        maxHealth = PlayerStatsManager.Instance.health;
-        moveSpeed = PlayerStatsManager.Instance.moveSpeed;
+        GetStats();
 
         currentHealth = maxHealth;
 
         healthBar.SetMaxHealth(maxHealth);
 
         healthBar.SetHealth(currentHealth);
+
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged += GetStats;
+        }
+        else
+        {
+            Debug.LogError("PlayerStatsManager.Instance is null in Start!");
+        }
+    }
+
+    void Update()
+    {
+
     }
 
     protected virtual void FixedUpdate()
@@ -94,8 +107,22 @@ public class PlayerStats : MonoBehaviour
         canLoseHealth = true;
     }
 
+    private void GetStats()
+    {
+        maxHealth = PlayerStatsManager.Instance.health;
+
+
+        Debug.Log("Stats have been updated: " +
+                 $"Health={maxHealth}");
+    }
+
     protected virtual void OnDestroy()
     {
         StopCoroutine(IFrames());
+
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged -= GetStats;
+        }
     }
 }

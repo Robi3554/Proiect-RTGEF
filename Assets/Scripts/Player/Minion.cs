@@ -43,10 +43,10 @@ public class Minion : MonoBehaviour
 
     private void Start()
     {
-        moveSpeed = PlayerStatsManager.Instance.moveSpeed * minionModifier;
-        damage = PlayerStatsManager.Instance.damage * minionModifier;
-        fireRate = PlayerStatsManager.Instance.fireRate * minionModifier;
-        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed * minionModifier;
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged += GetStats;
+        }
     }
 
     private void FixedUpdate()
@@ -106,6 +106,14 @@ public class Minion : MonoBehaviour
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
         shotProjectile.GetComponent<ProjectileScript>().FireProjectile(damage, projectileSpeed);
+    }
+
+    private void GetStats()
+    {
+        moveSpeed = PlayerStatsManager.Instance.moveSpeed * minionModifier;
+        damage = PlayerStatsManager.Instance.damage * minionModifier;
+        fireRate = PlayerStatsManager.Instance.fireRate * minionModifier;
+        projectileSpeed = PlayerStatsManager.Instance.projectileSpeed * minionModifier;
     }
 
     private void MoveTowardsTargetSpot()
@@ -191,6 +199,11 @@ public class Minion : MonoBehaviour
         if (OnMinionDestroyed != null)
         {
             OnMinionDestroyed.Invoke();
+        }
+
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged -= GetStats;
         }
     }
 

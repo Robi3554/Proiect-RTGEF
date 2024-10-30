@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,7 +24,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        moveSpeed = PlayerStatsManager.Instance.moveSpeed;
+        GetStats();
+
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged += GetStats;
+        }
+        else
+        {
+            Debug.LogError("PlayerStatsManager.Instance is null in Start!");
+        }
     }
 
     void Update()
@@ -68,5 +78,18 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveDirection = transform.up;
 
         rb.velocity = moveDirection * moveSpeed * verticalInput;
+    }
+
+    private void GetStats()
+    {
+        moveSpeed = PlayerStatsManager.Instance.moveSpeed;
+    }
+
+    private void OnDestroy()
+    {
+        if (PlayerStatsManager.Instance != null)
+        {
+            PlayerStatsManager.Instance.OnStatsChanged -= GetStats;
+        }
     }
 }
