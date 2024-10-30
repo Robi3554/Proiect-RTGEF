@@ -34,6 +34,7 @@ public class Minion : MonoBehaviour
 
     private bool isAtPoint = false;
     private bool isFollowingEnemy = false;
+    private bool isGoingBack = false;
 
 
     private void Awake()
@@ -43,6 +44,8 @@ public class Minion : MonoBehaviour
 
     private void Start()
     {
+        GetStats();
+
         if (PlayerStatsManager.Instance != null)
         {
             PlayerStatsManager.Instance.OnStatsChanged += GetStats;
@@ -86,6 +89,7 @@ public class Minion : MonoBehaviour
             if (!isAtPoint)
             {
                 MoveTowardsTargetSpot();
+                isGoingBack = false;
             }
             else
             {
@@ -95,7 +99,7 @@ public class Minion : MonoBehaviour
             RotateTowardsMainShip();
         }
 
-        if (Vector2.Distance(transform.position, targetSpot.position) > stoppingDistance)
+        if (Vector2.Distance(transform.position, targetSpot.position) > stoppingDistance && isGoingBack)
         {
             isAtPoint = false;
         }
@@ -186,6 +190,7 @@ public class Minion : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             isFollowingEnemy = false;
+            isGoingBack = true;
         }
     }
 

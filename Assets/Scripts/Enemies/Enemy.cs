@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
 
         if(health <= 0)
         {
+            Die();
             Destroy(gameObject);
         }
     }
@@ -38,8 +39,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void Die()
     {
         Instantiate(star, transform.position, Quaternion.identity);
+    }
+
+    private void OnDestroy()
+    {
+
     }
 }

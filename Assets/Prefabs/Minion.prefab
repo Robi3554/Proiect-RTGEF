@@ -158,7 +158,7 @@ MonoBehaviour:
   targetSpot: {fileID: 0}
   mainShip: {fileID: 0}
   firePoint: {fileID: 1583185810413818090}
-  followSpeed: 0.2
+  followSpeed: 0.3
   minionModifier: 0.5
   rayCastRange: 4
 --- !u!1 &5211049739153695081
