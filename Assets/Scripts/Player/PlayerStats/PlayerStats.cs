@@ -110,10 +110,6 @@ public class PlayerStats : MonoBehaviour
     private void GetStats()
     {
         maxHealth = PlayerStatsManager.Instance.health;
-
-
-        Debug.Log("Stats have been updated: " +
-                 $"Health={maxHealth}");
     }
 
     protected virtual void OnDestroy()

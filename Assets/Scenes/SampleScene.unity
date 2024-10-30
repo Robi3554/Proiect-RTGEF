@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6930aee7b12649827c46850dd28af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  star: {fileID: 8618073541792893373, guid: c99b5d8a6bc66e24398e42c46a8b729f, type: 3}
   health: 50
   damage: 15
 --- !u!60 &361419720
@@ -2089,7 +2090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2020517278
 Transform:
   m_ObjectHideFlags: 0
@@ -2226,7 +2227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2430,11 +2431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330604201998, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330604201998, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330604201998, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2478,7 +2479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330604202226, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5284170330882592417, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
       propertyPath: m_Layer

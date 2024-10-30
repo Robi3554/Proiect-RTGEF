@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject star;
+
     public float health;
 
     public float damage;
-
 
     void Start()
     {
@@ -35,5 +36,10 @@ public class Enemy : MonoBehaviour
         {
             col.gameObject.GetComponent<PlayerStats>().LoseHealth(damage);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(star, transform.position, Quaternion.identity);
     }
 }
