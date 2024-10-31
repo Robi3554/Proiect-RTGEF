@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class StarPickUp : MonoBehaviour
 {
+    public int expToAdd;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Star Taken");
+            GameManager.Instance.AddExp(expToAdd);
             Destroy(gameObject);
         }
     }

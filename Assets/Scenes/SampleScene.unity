@@ -1580,7 +1580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &855590335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2036,9 +2036,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 855590334}
-  level: 1
   expCount: 0
-  maxExpNedeed: 100
+  maxExpNeeded: 100
+  level: 1
 --- !u!1 &1460542465
 GameObject:
   m_ObjectHideFlags: 0

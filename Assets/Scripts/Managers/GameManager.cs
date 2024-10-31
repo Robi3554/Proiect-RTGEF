@@ -9,9 +9,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject button;
 
-    public int level;
-    public float expCount;
-    public float maxExpNedeed;
+    public int expCount = 0;
+    public int maxExpNeeded = 100;
+    public int level = 1;
+
+    private bool isLevelingUp = false;
+    private bool continueLevelUp = false;
+
 
     private void Awake()
     {
@@ -26,28 +30,61 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        button.SetActive(false);
+
+        button.GetComponent<Button>().onClick.AddListener(ContinueLevelUp);
+    }
+
     void Update()
     {
-        if(expCount > maxExpNedeed)
+        if (!isLevelingUp && expCount >= maxExpNeeded)
         {
-            float aux = expCount - maxExpNedeed;
+            StartCoroutine(LevelUpRoutine());
+        }
+    }
+
+    private IEnumerator LevelUpRoutine()
+    {
+        isLevelingUp = true;
+
+        while (expCount >= maxExpNeeded)
+        {
+            int excessExp = expCount - maxExpNeeded;
 
             LevelUp();
 
-            maxExpNedeed += Mathf.Round(maxExpNedeed * 0.20f);
+            maxExpNeeded += Mathf.RoundToInt(maxExpNeeded * 0.20f);
 
-            expCount = 0 + aux;
+            expCount = excessExp;
+
+            button.SetActive(true);
+            Time.timeScale = 0f;
+
+            continueLevelUp = false;
+            yield return new WaitUntil(() => continueLevelUp);
+
+            button.SetActive(false);
+            Time.timeScale = 1f;
         }
+
+        isLevelingUp = false;
+    }
+
+    public void AddExp(int ammount)
+    {
+        expCount += ammount;
     }
 
     private void LevelUp()
     {
-        Debug.Log("You Leveled up!");
-
-        button.SetActive(true);
-
-        Time.timeScale = 0f;
-
+        Debug.Log("You leveled up!");
         level++;
+    }
+
+    private void ContinueLevelUp()
+    {
+        continueLevelUp = true;
     }
 }
