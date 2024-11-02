@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameObject button;
-
-    public int expCount = 0;
+    public float expCount = 0;
     public int maxExpNeeded = 100;
     public int level = 1;
 
@@ -32,9 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        button.SetActive(false);
 
-        button.GetComponent<Button>().onClick.AddListener(ContinueLevelUp);
     }
 
     void Update()
@@ -51,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         while (expCount >= maxExpNeeded)
         {
-            int excessExp = expCount - maxExpNeeded;
+            float excessExp = expCount - maxExpNeeded;
 
             LevelUp();
 
@@ -59,20 +55,18 @@ public class GameManager : MonoBehaviour
 
             expCount = excessExp;
 
-            button.SetActive(true);
             Time.timeScale = 0f;
 
             continueLevelUp = false;
-            yield return new WaitUntil(() => continueLevelUp);
+            yield return null;
 
-            button.SetActive(false);
             Time.timeScale = 1f;
         }
 
         isLevelingUp = false;
     }
 
-    public void AddExp(int ammount)
+    public void AddExp(float ammount)
     {
         expCount += ammount;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarPickUp : MonoBehaviour
 {
-    public int expToAdd;
+    public float expToAdd;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
