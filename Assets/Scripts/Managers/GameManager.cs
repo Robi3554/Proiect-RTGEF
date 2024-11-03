@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int level = 1;
 
     private bool isLevelingUp = false;
-    private bool continueLevelUp = false;
+    //private bool continueLevelUp = false;
 
 
     private void Awake()
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
             Time.timeScale = 0f;
 
-            continueLevelUp = false;
+            //continueLevelUp = false;
             yield return null;
 
             Time.timeScale = 1f;
@@ -79,6 +79,6 @@ public class GameManager : MonoBehaviour
 
     private void ContinueLevelUp()
     {
-        continueLevelUp = true;
+        //continueLevelUp = true;
     }
 }
