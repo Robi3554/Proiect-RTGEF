@@ -15,7 +15,7 @@ public class SkillSlot : MonoBehaviour
     public RectTransform levelBack;
     public Button skillButton;
 
-    public int currentLevel;
+    private int currentLevel;
     public bool isUnlocked;
 
     public float lockedSize;

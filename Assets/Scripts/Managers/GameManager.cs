@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public GameObject skillPanel;
+
+    public Slider expSlider;
+
     public float expCount = 0;
     public int maxExpNeeded = 100;
     public int level = 1;
+    public int availablePoints;
 
     private bool isLevelingUp = false;
-    //private bool continueLevelUp = false;
+    private bool continueLevelUp = false;
 
+    public event Action<int> OnLevelUp;
 
     private void Awake()
     {
@@ -30,15 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
-    }
-
-    void Update()
-    {
-        if (!isLevelingUp && expCount >= maxExpNeeded)
-        {
-            StartCoroutine(LevelUpRoutine());
-        }
+        UpdateUI();
     }
 
     private IEnumerator LevelUpRoutine()
@@ -55,10 +54,14 @@ public class GameManager : MonoBehaviour
 
             expCount = excessExp;
 
+            UpdateUI();
+
             Time.timeScale = 0f;
 
-            //continueLevelUp = false;
-            yield return null;
+            continueLevelUp = false;
+            skillPanel.SetActive(true);
+
+            yield return new WaitUntil(() => continueLevelUp);
 
             Time.timeScale = 1f;
         }
@@ -69,16 +72,30 @@ public class GameManager : MonoBehaviour
     public void AddExp(float ammount)
     {
         expCount += ammount;
+
+        if (!isLevelingUp && expCount >= maxExpNeeded)
+        {
+            StartCoroutine(LevelUpRoutine());
+        }
     }
 
     private void LevelUp()
     {
         Debug.Log("You leveled up!");
+        OnLevelUp?.Invoke(InvestmentPointsToAdd() + 5);
         level++;
     }
 
-    private void ContinueLevelUp()
+    private void UpdateUI()
     {
-        //continueLevelUp = true;
+        expSlider.maxValue = maxExpNeeded;
+        expSlider.value = expCount;
     }
+
+    public void ContinueLevelUp()
+    {
+        continueLevelUp = true;
+    }
+
+    private int InvestmentPointsToAdd() =>  availablePoints / 5;
 }

@@ -9,8 +9,10 @@ public class SkilTreeManager : MonoBehaviour
     public SkillSlot[] skillSlots;
 
     public TMP_Text pointsText;
+    public TMP_Text investmentPointsText;
 
-    public int availablePoints;
+    private int availablePoints;
+    private int investmentPoints;
 
     private void OnEnable()
     {
@@ -25,22 +27,32 @@ public class SkilTreeManager : MonoBehaviour
             slot.skillButton.onClick.AddListener(() => CheckAvailablePoints(slot));
         }
 
+        availablePoints = GameManager.Instance.availablePoints;
+
+        GameManager.Instance.OnLevelUp += UpdateAbilityPoints;
+
         UpdateAbilityPoints(0);
     }
 
-    private void CheckAvailablePoints(SkillSlot slot)
+    private void CheckAvailablePoints(SkillSlot skillSlot)
     {
-        if(availablePoints > 0)
+        if(availablePoints > 0 && availablePoints >= skillSlot.skillSO.pointsPerLevel)
         {
-            slot.TryUpgradeSkill();
+            skillSlot.TryUpgradeSkill();
         }
     }
 
     private void UpdateAbilityPoints(int amount)
     {
-        availablePoints += amount;
+        GameManager.Instance.availablePoints += amount;
 
-        pointsText.text = "Points : " + availablePoints.ToString();
+        availablePoints = GameManager.Instance.availablePoints;
+
+        pointsText.text = "Total Points : " + availablePoints.ToString();
+
+        investmentPoints = availablePoints / 5;
+
+        investmentPointsText.text = "Investment points  for next round : " + investmentPoints.ToString();
     }
 
     private void HandleAbilityPointsSpent(SkillSlot skillSlot)
@@ -66,5 +78,7 @@ public class SkilTreeManager : MonoBehaviour
     {
         SkillSlot.OnAbilityPointsSpent -= HandleAbilityPointsSpent;
         SkillSlot.OnSkillMaxed -= HandleSkillMaxed;
+
+        GameManager.Instance.OnLevelUp -= UpdateAbilityPoints;
     }
 }
