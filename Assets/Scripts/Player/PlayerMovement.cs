@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector2 moveDirection = transform.up;
+        Vector2 moveDirection = transform.up.normalized;
 
         rb.velocity = moveDirection * moveSpeed * verticalInput;
     }

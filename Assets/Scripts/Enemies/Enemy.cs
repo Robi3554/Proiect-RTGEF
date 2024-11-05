@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private Transform target;
+    private Rigidbody2D rb;
+
     public GameObject star;
 
     public float health;
-
     public float damage;
+    public float speed;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        Vector2 direction = (target.position - transform.position).normalized;
+
+        rb.velocity = direction * speed;
     }
 
     public void TakeDamage(float damage)

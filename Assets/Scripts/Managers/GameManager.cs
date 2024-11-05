@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(LevelUpRoutine());
         }
+
+        UpdateUI();
     }
 
     private void LevelUp()
