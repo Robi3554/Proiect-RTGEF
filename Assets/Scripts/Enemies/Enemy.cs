@@ -25,9 +25,12 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 direction = (target.position - transform.position).normalized;
+        if(target != null)
+        {
+            Vector2 direction = (target.position - transform.position).normalized;
 
-        rb.velocity = direction * speed;
+            rb.velocity = direction * speed;
+        }
     }
 
     public void TakeDamage(float damage)

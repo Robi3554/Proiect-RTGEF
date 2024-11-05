@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameObject skillPanel;
+    public SkillTreeSlide slide;
+
+    //public GameObject skillPanel;
 
     public Slider expSlider;
 
@@ -59,7 +61,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
 
             continueLevelUp = false;
-            skillPanel.SetActive(true);
+
+            slide.SkillTreeEnter();
 
             yield return new WaitUntil(() => continueLevelUp);
 
