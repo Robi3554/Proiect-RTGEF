@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DamageUp
   m_EditorClassIdentifier: 
   skillName: Damage Up
+  skillDescription: Increase the damage by 5 for each level
   maxLevel: 5
   pointsPerLevel: 5
   skillIcon: {fileID: 21300000, guid: 567302194180dca45a5be09ed3daab29, type: 3}

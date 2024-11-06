@@ -4,10 +4,14 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class SkillSlot : MonoBehaviour
 {
-    public List<SkillSlot> prerequisiteSkillSlots;
+    [SerializeField]
+    private InfoBox infoBox;
+    [SerializeField]
+    private List<SkillSlot> prerequisiteSkillSlots;
     public SkillSO skillSO;
 
     public Image skillIcon;
@@ -94,6 +98,16 @@ public class SkillSlot : MonoBehaviour
     {
         isUnlocked = true;
         UpdateUI();
+    }
+
+    public void OnHover()
+    {
+        infoBox.gameObject.SetActive(true);
+    }
+
+    public void OnHoverOver()
+    {
+        infoBox.gameObject.SetActive(false);
     }
 
     private bool ValidationChecks() => skillSO != null && skillLevelText != null && levelBack != null;
