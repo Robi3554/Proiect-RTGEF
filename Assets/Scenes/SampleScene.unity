@@ -1886,6 +1886,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1649214355}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -4309,12 +4317,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4119416902190034083, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 86
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: skillSO
       value: 
-      objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+      objectReference: {fileID: 11400000, guid: e5389ed96a6efae48a00d732493cc080, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -4965,6 +4977,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1888852143}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -5992,6 +6012,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 2031096690}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -6128,6 +6156,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1627237482}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -7645,6 +7681,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1605068235}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291

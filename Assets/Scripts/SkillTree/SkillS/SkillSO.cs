@@ -10,4 +10,6 @@ public class SkillSO : ScriptableObject
     public int maxLevel;
     public int pointsPerLevel;
     public Sprite skillIcon;
+
+    public virtual void HandleEffect() { }
 }

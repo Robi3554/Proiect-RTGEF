@@ -71,6 +71,7 @@ public class SkillSlot : MonoBehaviour
         {
             currentLevel++;
             OnAbilityPointsSpent?.Invoke(this);
+            skillSO.HandleEffect();
             
             if(currentLevel >= skillSO.maxLevel)
             {

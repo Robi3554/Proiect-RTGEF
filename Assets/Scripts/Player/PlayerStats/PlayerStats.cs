@@ -6,6 +6,23 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    internal float MaxHealth
+    {
+        get { return maxHealth; }
+        set
+        {
+            if (maxHealth != value)
+            {
+                float difference = value - maxHealth;
+                maxHealth = value;
+
+                currentHealth += difference;
+
+                Debug.Log("Max health changed. New maxHealth: " + maxHealth + ", Current health: " + currentHealth);
+            }
+        }
+    }
+
     [Header("Player Stats")]
     internal float maxHealth;
     internal float moveSpeed;
@@ -60,11 +77,6 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-
-    }
-
     protected virtual void FixedUpdate()
     {
         healthBar.SetMaxHealth(maxHealth);
@@ -109,7 +121,7 @@ public class PlayerStats : MonoBehaviour
 
     private void GetStats()
     {
-        maxHealth = PlayerStatsManager.Instance.health;
+        MaxHealth = PlayerStatsManager.Instance.health;
     }
 
     protected virtual void OnDestroy()
