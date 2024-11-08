@@ -9,12 +9,14 @@ public class PlayerScriptableObject : ScriptableObject
 
     [Header("Player Stats")]
     public float health;
+    public float regenPerSec;
     public float moveSpeed;
 
     [Header("Weapon Stats")]
     public float damage;
     public float fireRate;
     public float range;
+    public float pierce;
 
     [Header("For Summoners")]
     public int maxNrOfMinions;

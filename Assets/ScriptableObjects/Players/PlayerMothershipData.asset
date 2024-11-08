@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Player Mothership
   health: 200
+  regenPerSec: 0.1
   moveSpeed: 10
   damage: 10
   fireRate: 1.5
   range: 30
+  pierce: 0
   maxNrOfMinions: 3
   timeBetweenSummons: 3
   projectileSpeed: 20

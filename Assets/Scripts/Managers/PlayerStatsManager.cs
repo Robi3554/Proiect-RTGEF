@@ -11,11 +11,13 @@ public class PlayerStatsManager : MonoBehaviour
 
     [Header("Player Stats")]
     internal float health;
+    internal float regenPerSec;
     internal float moveSpeed;
 
     [Header("Weapon Stats")]
     internal float damage;
     internal float fireRate;
+    internal float pierce;
     internal float range;
 
     [Header("For Summoners")]
@@ -54,9 +56,11 @@ public class PlayerStatsManager : MonoBehaviour
     public void InitalStats(PlayerScriptableObject stats)
     {
         health = stats.health;
+        regenPerSec = stats.regenPerSec;
         moveSpeed = stats.moveSpeed;
         damage = stats.damage;
         fireRate = stats.fireRate;
+        pierce = stats.pierce;
         range = stats.range;
         maxNrOfMinions = stats.maxNrOfMinions;
         timeBetweenSummons = stats.timeBetweenSummons;
@@ -72,6 +76,9 @@ public class PlayerStatsManager : MonoBehaviour
             case StatType.Health:
                 health += amount;
                 break;
+            case StatType.RegenPerSec:
+                regenPerSec += amount;
+                break;
             case StatType.MoveSpeed:
                 moveSpeed += amount;
                 break;
@@ -80,6 +87,9 @@ public class PlayerStatsManager : MonoBehaviour
                 break;
             case StatType.FireRate:
                 fireRate += amount;
+                break;
+            case StatType.Pierce:
+                pierce += amount;
                 break;
             case StatType.Range:
                 range += amount;
@@ -102,9 +112,11 @@ public class PlayerStatsManager : MonoBehaviour
 public enum StatType
 {
     Health,
+    RegenPerSec,
     MoveSpeed,
     Damage,
     FireRate,
+    Pierce,
     Range,
     MaxNrOfMinions,
     TimeBetweenSummons,

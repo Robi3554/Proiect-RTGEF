@@ -17,19 +17,13 @@ public class PlayerStats : MonoBehaviour
                 maxHealth = value;
 
                 currentHealth += difference;
-
-                Debug.Log("Max health changed. New maxHealth: " + maxHealth + ", Current health: " + currentHealth);
             }
         }
     }
 
     [Header("Player Stats")]
     internal float maxHealth;
-    internal float moveSpeed;
-
-    [Header("Weapon Stats")]
-    internal float fireRate;
-    internal float damage;
+    internal float regenPerSec;
 
     [Header("Health Bar")]
     [SerializeField]
@@ -66,6 +60,8 @@ public class PlayerStats : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
         healthBar.SetHealth(currentHealth);
+
+        StartCoroutine(RegenHealth());
 
         if (PlayerStatsManager.Instance != null)
         {
@@ -104,6 +100,16 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    protected IEnumerator RegenHealth()
+    {
+        while(gameObject != null)
+        {
+            yield return new WaitForSeconds(1f);
+
+            currentHealth += regenPerSec;
+        }
+    }
+
     protected virtual IEnumerator IFrames()
     {
         int temp = 0;
@@ -122,11 +128,13 @@ public class PlayerStats : MonoBehaviour
     private void GetStats()
     {
         MaxHealth = PlayerStatsManager.Instance.health;
+        regenPerSec = PlayerStatsManager.Instance.regenPerSec;
     }
 
     protected virtual void OnDestroy()
     {
         StopCoroutine(IFrames());
+        StopCoroutine(RegenHealth());
 
         if (PlayerStatsManager.Instance != null)
         {

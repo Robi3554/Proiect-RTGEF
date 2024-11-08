@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
-    private float xStartPos;
-    private float yStartPos;
+    protected float xStartPos;
+    protected float yStartPos;
 
     [Header("Projectile Stats")]
     [SerializeField]
-    private float travelDistance;
-    private float speed;
-    private float damage;
+    protected float travelDistance;
+    protected float speed;
+    protected float damage;
 
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -26,7 +26,7 @@ public class ProjectileScript : MonoBehaviour
         yStartPos = transform.position.y;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         float distanceX = Mathf.Abs(xStartPos - transform.position.x);
         float distanceY = Mathf.Abs(yStartPos - transform.position.y);
@@ -37,7 +37,7 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Enemy"))
         {

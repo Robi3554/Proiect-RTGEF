@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Player RayCast
   health: 100
+  regenPerSec: 0
   moveSpeed: 15
   damage: 20
   fireRate: 1.3
   range: 20
+  pierce: 0
   maxNrOfMinions: 0
   timeBetweenSummons: 0
   projectileSpeed: 0

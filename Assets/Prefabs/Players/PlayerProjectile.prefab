@@ -212,6 +212,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   text: {fileID: 0}
   flashColor: {r: 1, g: 0, b: 0, a: 0.60784316}
-  regularColor: {r: 1, g: 0, b: 0, a: 1}
+  regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.1
   numberOfFlashes: 5

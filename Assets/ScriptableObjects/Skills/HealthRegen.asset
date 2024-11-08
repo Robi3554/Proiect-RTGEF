@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025a5c7d53741454fbfa13d09efba21c, type: 3}
+  m_Name: HealthRegen
+  m_EditorClassIdentifier: 
+  skillName: Health Regen
+  skillDescription: 'Regenerate the players  health each second '
+  maxLevel: 5
+  pointsPerLevel: 7
+  skillIcon: {fileID: 21300000, guid: 833c1901b4b251248ba7dbcfb1038739, type: 3}
+  regenIncrease: 0.2
