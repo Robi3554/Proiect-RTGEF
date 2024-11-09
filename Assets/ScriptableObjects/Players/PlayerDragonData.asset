@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Player Dragon
   health: 150
+  regenPerSec: 0
   moveSpeed: 20
   damage: 15
   fireRate: 0.8
   range: 20
+  pierce: 0
+  ciritcalMult: 2
+  criticalRate: 5
   maxNrOfMinions: 0
   timeBetweenSummons: 0
   projectileSpeed: 30

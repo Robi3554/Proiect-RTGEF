@@ -28,7 +28,7 @@ public class HitScanWeapon : PlayerBasicWeapon
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(CheckDamage(damage));
             }
 
             lr.SetPosition(0, firePoint.position);

@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 
     public SkillTreeSlide slide;
 
-    //public GameObject skillPanel;
-
     public Slider expSlider;
 
     public float expCount = 0;

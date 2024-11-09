@@ -10,6 +10,8 @@ public class BasicWeapon : MonoBehaviour
     protected float nextFireTime;
     protected float damage;
     protected float fireRate;
+    protected float criticalMult;
+    protected int criticalRate;
 
     protected virtual void Awake()
     {
@@ -40,13 +42,27 @@ public class BasicWeapon : MonoBehaviour
 
     protected virtual void Shoot()
     {
-
+        
     }
 
     protected virtual void GetStats()
     {
         damage = PlayerStatsManager.Instance.damage;
         fireRate = PlayerStatsManager.Instance.fireRate;
+        criticalMult = PlayerStatsManager.Instance.criticalMult;
+        criticalRate = PlayerStatsManager.Instance.criticalRate;
+    }
+
+    protected float CheckDamage(float damage)
+    {
+        if(criticalRate > Random.Range(0, 100))
+        {
+            return damage * criticalMult;
+        }
+        else
+        {
+            return damage;
+        }
     }
 
     protected virtual void OnDestroy()

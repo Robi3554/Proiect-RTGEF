@@ -19,10 +19,12 @@ public class PlayerStatsManager : MonoBehaviour
     internal float fireRate;
     internal float pierce;
     internal float range;
+    internal float criticalMult;
+    internal int criticalRate;
 
     [Header("For Summoners")]
-    internal int maxNrOfMinions;
     internal float timeBetweenSummons;
+    internal int maxNrOfMinions;
 
     [Header("For Porjectiles")]
     internal float projectileSpeed;
@@ -62,6 +64,8 @@ public class PlayerStatsManager : MonoBehaviour
         fireRate = stats.fireRate;
         pierce = stats.pierce;
         range = stats.range;
+        criticalMult = stats.ciritcalMult;
+        criticalRate = stats.criticalRate;
         maxNrOfMinions = stats.maxNrOfMinions;
         timeBetweenSummons = stats.timeBetweenSummons;
         projectileSpeed = stats.projectileSpeed;
@@ -94,6 +98,12 @@ public class PlayerStatsManager : MonoBehaviour
             case StatType.Range:
                 range += amount;
                 break;
+            case StatType.CriticalMult:
+                criticalMult += amount;
+                break;
+            case StatType.CriticalRate:
+                criticalRate += (int)amount;
+                break;
             case StatType.MaxNrOfMinions:
                 maxNrOfMinions += (int)amount;
                 break;
@@ -115,6 +125,8 @@ public enum StatType
     RegenPerSec,
     MoveSpeed,
     Damage,
+    CriticalRate,
+    CriticalMult,
     FireRate,
     Pierce,
     Range,

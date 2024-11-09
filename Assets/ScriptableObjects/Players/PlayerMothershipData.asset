@@ -20,6 +20,8 @@ MonoBehaviour:
   fireRate: 1.5
   range: 30
   pierce: 0
+  ciritcalMult: 2
+  criticalRate: 5
   maxNrOfMinions: 3
   timeBetweenSummons: 3
   projectileSpeed: 20

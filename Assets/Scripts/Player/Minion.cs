@@ -23,6 +23,8 @@ public class Minion : MonoBehaviour
     private float damage;
     private float fireRate;
     private float projectileSpeed;
+    private float criticalMult;
+    private int criticalRate;
     private bool isAtEnemy = false;
 
     [Header("Minion Stats")]
@@ -109,7 +111,19 @@ public class Minion : MonoBehaviour
     {
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(damage, projectileSpeed);
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed);
+    }
+
+    private float CheckDamage(float damage)
+    {
+        if (criticalRate > Random.Range(0, 100))
+        {
+            return damage * criticalMult;
+        }
+        else
+        {
+            return damage;
+        }
     }
 
     private void GetStats()
@@ -118,6 +132,8 @@ public class Minion : MonoBehaviour
         damage = PlayerStatsManager.Instance.damage * minionModifier;
         fireRate = PlayerStatsManager.Instance.fireRate * minionModifier;
         projectileSpeed = PlayerStatsManager.Instance.projectileSpeed * minionModifier;
+        criticalMult = PlayerStatsManager.Instance.criticalMult;
+        criticalRate = PlayerStatsManager.Instance.criticalRate;
     }
 
     private void MoveTowardsTargetSpot()
