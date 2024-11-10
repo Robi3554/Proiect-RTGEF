@@ -25,6 +25,7 @@ public class Minion : MonoBehaviour
     private float projectileSpeed;
     private float criticalMult;
     private int criticalRate;
+    private int enemyHit;
     private bool isAtEnemy = false;
 
     [Header("Minion Stats")]
@@ -111,7 +112,7 @@ public class Minion : MonoBehaviour
     {
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed);
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, enemyHit);
     }
 
     private float CheckDamage(float damage)
@@ -134,6 +135,7 @@ public class Minion : MonoBehaviour
         projectileSpeed = PlayerStatsManager.Instance.projectileSpeed * minionModifier;
         criticalMult = PlayerStatsManager.Instance.criticalMult;
         criticalRate = PlayerStatsManager.Instance.criticalRate;
+        enemyHit = PlayerStatsManager.Instance.enemyHit;
     }
 
     private void MoveTowardsTargetSpot()

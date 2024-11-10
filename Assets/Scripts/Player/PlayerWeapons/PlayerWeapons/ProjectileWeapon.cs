@@ -24,7 +24,7 @@ public class ProjectileWeapon : PlayerBasicWeapon
 
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed);
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, enemyHit);
     }
 
     protected override void GetStats()

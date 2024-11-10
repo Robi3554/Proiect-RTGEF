@@ -16,9 +16,9 @@ public class PlayerScriptableObject : ScriptableObject
     public float damage;
     public float fireRate;
     public float range;
-    public float pierce;
     public float ciritcalMult;
     public int criticalRate;
+    public int enemyHit;
 
     [Header("For Summoners")]
     public int maxNrOfMinions;

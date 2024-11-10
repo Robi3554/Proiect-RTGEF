@@ -22,7 +22,7 @@ public class BodyPartProjectileWeapon : BodyPartWeapon
     {
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed);
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, enemyHit);
     }
 
     protected override void OnParentStay2D(Collider2D col)

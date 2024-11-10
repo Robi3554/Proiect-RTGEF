@@ -16,12 +16,12 @@ MonoBehaviour:
   health: 120
   regenPerSec: 0
   moveSpeed: 12
-  damage: 10
+  damage: 15
   fireRate: 1
   range: 20
-  pierce: 0
   ciritcalMult: 2
   criticalRate: 5
+  enemyHit: 1
   maxNrOfMinions: 0
   timeBetweenSummons: 0
   projectileSpeed: 25

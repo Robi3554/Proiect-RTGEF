@@ -14,7 +14,9 @@ public class ProjectileScript : MonoBehaviour
     protected float travelDistance;
     protected float speed;
     protected float damage;
+    protected int enemyHit;
 
+    private int enemiesDamaged;
 
     protected virtual void Start()
     {
@@ -46,15 +48,21 @@ public class ProjectileScript : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-            }
 
-            Destroy(gameObject);
+                enemiesDamaged++;
+
+                if (enemiesDamaged >= enemyHit)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 
-    public void FireProjectile(float damage, float speed)
+    public void FireProjectile(float damage, float speed, int enemyHit)
     {
         this.damage = damage;
         this.speed = speed;
+        this.enemyHit = enemyHit;
     }
 }

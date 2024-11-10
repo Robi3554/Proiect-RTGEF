@@ -8,6 +8,8 @@ public class HitScanWeapon : PlayerBasicWeapon
 
     public float fadeTime;
 
+    public LayerMask enemyMask;
+
     protected override void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
@@ -20,25 +22,34 @@ public class HitScanWeapon : PlayerBasicWeapon
 
     protected new IEnumerator Shoot()
     {
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.up);
+        int enemiesDamaged = 0;
 
-        if (hit)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(firePoint.position, firePoint.up, range, enemyMask);
+
+        System.Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
+
+        lr.SetPosition(0, firePoint.position);
+
+        Vector2 finalPoint = firePoint.position + firePoint.up * range;
+
+        foreach (RaycastHit2D hit in hits)
         {
             Enemy enemy = hit.transform.GetComponent<Enemy>();
 
             if (enemy != null)
             {
-                enemy.TakeDamage(CheckDamage(damage));
-            }
+                enemy.TakeDamage(damage);
 
-            lr.SetPosition(0, firePoint.position);
-            lr.SetPosition(1, hit.point);
+                finalPoint = hit.point;
+
+                enemiesDamaged++;
+
+                if (enemiesDamaged >= enemyHit)
+                    break;
+            }
         }
-        else
-        {
-            lr.SetPosition(0, firePoint.position);
-            lr.SetPosition(1, firePoint.position + firePoint.up * 100);
-        }
+
+        lr.SetPosition(1, finalPoint);
 
         lr.enabled = true;
 
