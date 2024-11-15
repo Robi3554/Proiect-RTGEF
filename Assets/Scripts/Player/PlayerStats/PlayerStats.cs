@@ -110,7 +110,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    protected virtual IEnumerator IFrames()
+    public virtual IEnumerator IFrames()
     {
         int temp = 0;
         canLoseHealth = false;
