@@ -22,6 +22,7 @@ public class Minion : MonoBehaviour
     protected float nextFireTime;
     private float damage;
     private float fireRate;
+    private float range;
     private float projectileSpeed;
     private float criticalMult;
     private int criticalRate;
@@ -112,7 +113,7 @@ public class Minion : MonoBehaviour
     {
         GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
-        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, enemyHit);
+        shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, range, enemyHit);
     }
 
     private float CheckDamage(float damage)
@@ -132,6 +133,7 @@ public class Minion : MonoBehaviour
         moveSpeed = PlayerStatsManager.Instance.moveSpeed * minionModifier;
         damage = PlayerStatsManager.Instance.damage * minionModifier;
         fireRate = PlayerStatsManager.Instance.fireRate * minionModifier;
+        range = PlayerStatsManager.Instance.range * minionModifier;
         projectileSpeed = PlayerStatsManager.Instance.projectileSpeed * minionModifier;
         criticalMult = PlayerStatsManager.Instance.criticalMult;
         criticalRate = PlayerStatsManager.Instance.criticalRate;

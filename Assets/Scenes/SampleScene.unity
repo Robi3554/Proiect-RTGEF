@@ -312,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: skillSO
       value: 
-      objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+      objectReference: {fileID: 11400000, guid: 49019f6ae375657449276f79ec8aee6f, type: 2}
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: prerequisiteSkillSlots.Array.size
       value: 1
@@ -810,6 +810,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 2144105491}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -818,6 +826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cc83d5a767de2b4fbeca2a591dab5fa, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1902,6 +1914,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca08774a54c25a942b828d017527947a, type: 3}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.r
+      value: 0.40784314
+      objectReference: {fileID: 0}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2152,6 +2176,10 @@ PrefabInstance:
     - target: {fileID: 3034377377578199605, guid: dd7f246af29e0ec42a0877374dd8a3b9, type: 3}
       propertyPath: m_Name
       value: Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034377377578199605, guid: dd7f246af29e0ec42a0877374dd8a3b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7f246af29e0ec42a0877374dd8a3b9, type: 3}
@@ -3186,6 +3214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 3034377377578199605, guid: dd7f246af29e0ec42a0877374dd8a3b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd7f246af29e0ec42a0877374dd8a3b9, type: 3}
 --- !u!1 &817638674
@@ -3387,6 +3419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50e49bcc0ed4df347afabd4c908d06ac, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3965,6 +4001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50e49bcc0ed4df347afabd4c908d06ac, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4342,6 +4382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50e49bcc0ed4df347afabd4c908d06ac, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4593,6 +4637,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1396693566}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -4601,6 +4653,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cc83d5a767de2b4fbeca2a591dab5fa, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4850,6 +4906,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751019224}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -4858,6 +4922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cc83d5a767de2b4fbeca2a591dab5fa, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5118,6 +5186,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca08774a54c25a942b828d017527947a, type: 3}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.r
+      value: 0.40784314
+      objectReference: {fileID: 0}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5357,6 +5437,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1875419729}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -5365,6 +5453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cc83d5a767de2b4fbeca2a591dab5fa, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5877,12 +5969,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4119416902190034083, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 86
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -6153,6 +6249,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca08774a54c25a942b828d017527947a, type: 3}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.r
+      value: 0.40784314
+      objectReference: {fileID: 0}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6296,6 +6404,18 @@ PrefabInstance:
     - target: {fileID: 6777934831117070465, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Name
       value: SkillButton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca08774a54c25a942b828d017527947a, type: 3}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.r
+      value: 0.40784314
       objectReference: {fileID: 0}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
@@ -6490,6 +6610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50e49bcc0ed4df347afabd4c908d06ac, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6743,6 +6867,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 977742685}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -6751,6 +6883,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cc83d5a767de2b4fbeca2a591dab5fa, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7020,6 +7156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50e49bcc0ed4df347afabd4c908d06ac, type: 3}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7823,6 +7963,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillButton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca08774a54c25a942b828d017527947a, type: 3}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777934831117070468, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_Color.r
+      value: 0.40784314
+      objectReference: {fileID: 0}
     - target: {fileID: 6777934831117070470, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8011,12 +8163,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4119416902190034083, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 86
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: skillSO
       value: 
-      objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+      objectReference: {fileID: 11400000, guid: b6c012717c3cf884eb6e4b994880338c, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -8323,6 +8479,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8832470961415650812, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c84f014bed0a7f745a2b102fe733f68c, type: 3}
 --- !u!1001 &6777934829910965218
@@ -8332,10 +8492,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 817638675}
     m_Modifications:
-    - target: {fileID: 78485989414700607, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.29541016
-      objectReference: {fileID: 0}
     - target: {fileID: 4119416902190034083, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_SizeDelta.x
       value: 50
@@ -8353,8 +8509,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 46.828976
       objectReference: {fileID: 0}
     - target: {fileID: 6777934830769317267, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_text
@@ -8463,6 +8627,10 @@ PrefabInstance:
     - target: {fileID: 7567160933980677290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_Color.r
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280716188328211400, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}

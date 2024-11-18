@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "IncreasePierceAndRange", menuName = "SkillTree/Skills/IncreasePierceAndRange")]
+[CreateAssetMenu(fileName = "IncreasePierceAndRange", menuName = "SkillTree/Skills/1st Tree/IncreasePierceAndRange")]
 public class IncreasePierceAndRange : SkillSO
 {
     public float rangeIncrease;

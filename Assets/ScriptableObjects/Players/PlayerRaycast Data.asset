@@ -18,7 +18,7 @@ MonoBehaviour:
   moveSpeed: 15
   damage: 20
   fireRate: 1.3
-  range: 20
+  range: 50
   ciritcalMult: 2
   criticalRate: 5
   enemyHit: 1

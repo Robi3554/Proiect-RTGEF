@@ -11,7 +11,7 @@ public class ProjectileScript : MonoBehaviour
 
     [Header("Projectile Stats")]
     [SerializeField]
-    protected float travelDistance;
+    protected float range;
     protected float speed;
     protected float damage;
     protected int enemyHit;
@@ -33,7 +33,7 @@ public class ProjectileScript : MonoBehaviour
         float distanceX = Mathf.Abs(xStartPos - transform.position.x);
         float distanceY = Mathf.Abs(yStartPos - transform.position.y);
 
-        if (distanceX >= travelDistance || distanceY >= travelDistance)
+        if (distanceX >= range || distanceY >= range)
         {
             Destroy(gameObject);
         }
@@ -59,10 +59,11 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
-    public void FireProjectile(float damage, float speed, int enemyHit)
+    public void FireProjectile(float damage, float speed,float range ,int enemyHit)
     {
         this.damage = damage;
         this.speed = speed;
+        this.range = range;
         this.enemyHit = enemyHit;
     }
 }
