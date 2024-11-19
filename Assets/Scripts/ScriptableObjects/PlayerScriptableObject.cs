@@ -24,6 +24,7 @@ public class PlayerScriptableObject : ScriptableObject
     public int maxNrOfMinions;
     public float timeBetweenSummons;
 
-    [Header("For Porjectiles")]
+    [Header("For Projectiles")]
     public float projectileSpeed;
+    public int projectileCount;
 }

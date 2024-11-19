@@ -25,3 +25,4 @@ MonoBehaviour:
   maxNrOfMinions: 3
   timeBetweenSummons: 3
   projectileSpeed: 20
+  projectileCount: 1

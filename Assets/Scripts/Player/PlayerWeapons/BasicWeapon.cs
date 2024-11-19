@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BasicWeapon : MonoBehaviour
 {
-    public Transform firePoint;
+    protected Transform firePoint;
 
     protected float nextFireTime;
     protected float damage;

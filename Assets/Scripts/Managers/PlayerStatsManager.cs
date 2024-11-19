@@ -28,6 +28,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     [Header("For Porjectiles")]
     internal float projectileSpeed;
+    internal int projectileCount;
 
     public event Action OnStatsChanged;
 
@@ -69,6 +70,7 @@ public class PlayerStatsManager : MonoBehaviour
         maxNrOfMinions = stats.maxNrOfMinions;
         timeBetweenSummons = stats.timeBetweenSummons;
         projectileSpeed = stats.projectileSpeed;
+        projectileCount = stats.projectileCount;
 
         OnStatsChanged?.Invoke();
     }
@@ -113,6 +115,9 @@ public class PlayerStatsManager : MonoBehaviour
             case StatType.ProjectileSpeed:
                 projectileSpeed += amount;
                 break;
+            case StatType.ProjectileCount:
+                projectileCount += (int)amount;
+                break;
         }
 
         OnStatsChanged?.Invoke();
@@ -132,5 +137,6 @@ public enum StatType
     Range,
     MaxNrOfMinions,
     TimeBetweenSummons,
-    ProjectileSpeed
+    ProjectileSpeed,
+    ProjectileCount
 }

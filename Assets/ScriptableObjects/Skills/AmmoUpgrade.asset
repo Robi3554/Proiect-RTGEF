@@ -17,4 +17,4 @@ MonoBehaviour:
   pointsPerLevel: 5
   skillIcon: {fileID: 21300000, guid: 4cda6d0a030f5b74a924625ec2490093, type: 3}
   damageIncrease: 3
-  projectileSpeedIncrease: 6
+  projectileSpeedIncrease: 4

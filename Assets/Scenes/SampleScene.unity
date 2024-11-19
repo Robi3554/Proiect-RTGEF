@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5899301371210386844, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6985571953595971875, guid: 7d03dec59faf72b43badbae697a40be1, type: 3}
       propertyPath: m_RootOrder
@@ -3411,6 +3411,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1701494812}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -3993,6 +4001,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1831009937}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -4374,6 +4390,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1638677348}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -5743,7 +5767,7 @@ MonoBehaviour:
   expCount: 0
   maxExpNeeded: 100
   level: 1
-  availablePoints: 0
+  availablePoints: 111
 --- !u!1 &1460542465
 GameObject:
   m_ObjectHideFlags: 0
@@ -6602,6 +6626,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 2074758845}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -6866,7 +6898,7 @@ PrefabInstance:
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: skillSO
       value: 
-      objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+      objectReference: {fileID: 11400000, guid: e588bc2b8dd362b489615cc1548a1a84, type: 2}
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: prerequisiteSkillSlots.Array.size
       value: 1
@@ -7148,6 +7180,14 @@ PrefabInstance:
       propertyPath: skillSO
       value: 
       objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
+      propertyPath: prerequisiteSkillSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1593547043}
     - target: {fileID: 4756605116522214290, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.0001373291
@@ -7310,7 +7350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917944353}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.233, z: -0.25255144}
+  m_LocalPosition: {x: -3.37, y: -0.233, z: -0.25255144}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.083333336}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8649,6 +8689,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 8356338289090160391, guid: 34566166639bfca4389cada3f70d7e03, type: 3}
+    - target: {fileID: 6316933276720823081, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7097043317819145592, guid: 6d64c986b0628cc429eca79933bba310, type: 3}
       propertyPath: m_RootOrder
       value: 2
