@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Overdrive", menuName = "SkillTree/Skills/1st Tree/Overdrive")]
+[CreateAssetMenu(fileName = "Overdrive", menuName = "Skills/1st Tree/Overdrive")]
 public class Overdrive : SkillSO
 {
     public float damageIncrease;

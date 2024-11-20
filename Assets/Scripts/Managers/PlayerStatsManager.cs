@@ -21,6 +21,7 @@ public class PlayerStatsManager : MonoBehaviour
     internal float criticalMult;
     internal int criticalRate;
     internal int enemyHit;
+    internal int shootCount;
 
     [Header("For Summoners")]
     internal float timeBetweenSummons;
@@ -67,6 +68,7 @@ public class PlayerStatsManager : MonoBehaviour
         range = stats.range;
         criticalMult = stats.ciritcalMult;
         criticalRate = stats.criticalRate;
+        shootCount = stats.shootCount;
         maxNrOfMinions = stats.maxNrOfMinions;
         timeBetweenSummons = stats.timeBetweenSummons;
         projectileSpeed = stats.projectileSpeed;
@@ -96,6 +98,9 @@ public class PlayerStatsManager : MonoBehaviour
                 break;
             case StatType.EnemyHit:
                 enemyHit += (int)amount;
+                break;
+            case StatType.ShootCount:
+                shootCount += (int)amount;
                 break;
             case StatType.Range:
                 range += amount;
@@ -132,6 +137,7 @@ public enum StatType
     Damage,
     CriticalRate,
     CriticalMult,
+    ShootCount,
     FireRate,
     EnemyHit,
     Range,

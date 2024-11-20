@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class HitScanWeapon : PlayerBasicWeapon
@@ -7,6 +8,7 @@ public class HitScanWeapon : PlayerBasicWeapon
     public LineRenderer lr;
 
     public float fadeTime;
+    public float timeBetweenShots;
 
     public LayerMask enemyMask;
 
@@ -22,39 +24,44 @@ public class HitScanWeapon : PlayerBasicWeapon
 
     protected new IEnumerator Shoot()
     {
-        int enemiesDamaged = 0;
-
-        RaycastHit2D[] hits = Physics2D.RaycastAll(firePoint.position, firePoint.up, range, enemyMask);
-
-        System.Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
-
-        lr.SetPosition(0, firePoint.position);
-
-        Vector2 finalPoint = firePoint.position + firePoint.up * range;
-
-        foreach (RaycastHit2D hit in hits)
+        for (int i = 0; i < shootCount; i++) 
         {
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            int enemiesDamaged = 0;
 
-            if (enemy != null)
+            RaycastHit2D[] hits = Physics2D.RaycastAll(firePoint.position, firePoint.up, range, enemyMask);
+
+            System.Array.Sort(hits, (x, y) => x.distance.CompareTo(y.distance));
+
+            lr.SetPosition(0, firePoint.position);
+
+            Vector2 finalPoint = firePoint.position + firePoint.up * range;
+
+            foreach (RaycastHit2D hit in hits)
             {
-                enemy.TakeDamage(damage);
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
 
-                finalPoint = hit.point;
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
 
-                enemiesDamaged++;
+                    finalPoint = hit.point;
 
-                if (enemiesDamaged >= enemyHit)
-                    break;
+                    enemiesDamaged++;
+
+                    if (enemiesDamaged >= enemyHit)
+                        break;
+                }
             }
-        }
 
-        lr.SetPosition(1, finalPoint);
+            lr.SetPosition(1, finalPoint);
 
-        lr.enabled = true;
+            lr.enabled = true;
 
-        yield return new WaitForSeconds(fadeTime);
+            yield return new WaitForSeconds(fadeTime);
 
-        lr.enabled = false;
+            lr.enabled = false;
+
+            yield return new WaitForSeconds(timeBetweenShots);
+        }      
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AmmoUpgrade", menuName = "SkillTree/Skills/3rd Tree/Projectile/AmmoUpgrade")]
+[CreateAssetMenu(fileName = "AmmoUpgrade", menuName = "Skills/3rd Tree/Projectile/AmmoUpgrade")]
 public class AmmoUpgrade : SkillSO
 {
     public float damageIncrease;

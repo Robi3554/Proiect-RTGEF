@@ -5,6 +5,19 @@ using UnityEngine;
 
 public class BasicWeapon : MonoBehaviour
 {
+    private int ShootCount
+    {
+        get { return shootCount; }
+        set
+        {
+            if (shootCount != value)
+            {
+                shootCount = value;
+                //CheckActivation();
+            }
+        }
+    }
+
     protected Transform firePoint;
 
     protected float nextFireTime;
@@ -14,6 +27,7 @@ public class BasicWeapon : MonoBehaviour
     protected float criticalMult;
     protected int criticalRate;
     protected int enemyHit;
+    protected int shootCount;
 
     protected virtual void Awake()
     {
@@ -55,6 +69,7 @@ public class BasicWeapon : MonoBehaviour
         range = PlayerStatsManager.Instance.range;
         criticalMult = PlayerStatsManager.Instance.criticalMult;
         criticalRate = PlayerStatsManager.Instance.criticalRate;
+        ShootCount = PlayerStatsManager.Instance.shootCount;
     }
 
     protected float CheckDamage(float damage)

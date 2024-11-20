@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CritIncrease", menuName = "SkillTree/Skills/1st Tree/CritIncrease")]
+[CreateAssetMenu(fileName = "CritIncrease", menuName = "Skills/1st Tree/CritIncrease")]
 public class CritIncrease : SkillSO
 {
     public float multIncrease;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BubbleShield", menuName = "SkillTree/Skills/BubbleShield")]
+[CreateAssetMenu(fileName = "BubbleShield", menuName = "Skills/BubbleShield")]
 public class BubbleShieldSkill : SkillSO
 {
     public override void HandleEffect()

@@ -3,10 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
+
 
 public class SkillTreeSlide : MonoBehaviour
 {
     public Image skillPanel;
+
+    public GameObject[] skillTrees;
+
+    private void Start()
+    {
+        string playerName = GameObject.FindGameObjectWithTag("Player").name;
+
+        foreach (GameObject skillTree in skillTrees) 
+        {
+            if(string.Equals(playerName, RemoveLastWord(skillTree.name), StringComparison.OrdinalIgnoreCase))
+            {
+                skillTree.SetActive(true);
+            }
+        }
+    }
+
+    private string RemoveLastWord(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input)) return input;
+
+        string[] words = input.Split(' ');
+
+        if (words.Length <= 1) return string.Empty;
+
+        return string.Join(" ", words, 0, words.Length - 1);
+    }
 
     public void SkillTreeEnter()
     {
@@ -17,7 +45,7 @@ public class SkillTreeSlide : MonoBehaviour
 
     public void SkillTreeLeave()
     {
-        int opt = Random.Range(0, 4);
+        int opt = UnityEngine.Random.Range(0, 4);
 
         switch (opt)
         {

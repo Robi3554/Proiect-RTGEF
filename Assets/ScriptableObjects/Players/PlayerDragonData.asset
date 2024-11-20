@@ -22,6 +22,7 @@ MonoBehaviour:
   ciritcalMult: 2
   criticalRate: 5
   enemyHit: 1
+  shootCount: 1
   maxNrOfMinions: 0
   timeBetweenSummons: 0
   projectileSpeed: 30

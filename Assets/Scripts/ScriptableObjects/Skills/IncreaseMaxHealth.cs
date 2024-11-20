@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "IncreaseMaxHealth", menuName = "SkillTree/Skills/IncreaseMaxHealth")]
+[CreateAssetMenu(fileName = "IncreaseMaxHealth", menuName = "Skills/IncreaseMaxHealth")]
 public class IncreaseMaxHealth : SkillSO
 {
     public float healthIncrease;
