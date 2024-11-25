@@ -36,6 +36,8 @@ public class HitScanWeapon : PlayerBasicWeapon
 
             Vector2 finalPoint = firePoint.position + firePoint.up * range;
 
+            AudioManager.Instance.PlaySFXClip(AudioManager.Instance.shooting);
+
             foreach (RaycastHit2D hit in hits)
             {
                 Enemy enemy = hit.transform.GetComponent<Enemy>();
