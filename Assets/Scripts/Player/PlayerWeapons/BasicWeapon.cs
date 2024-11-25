@@ -13,7 +13,6 @@ public class BasicWeapon : MonoBehaviour
             if (shootCount != value)
             {
                 shootCount = value;
-                //CheckActivation();
             }
         }
     }

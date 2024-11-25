@@ -14,7 +14,7 @@ public class HitScanWeapon : PlayerBasicWeapon
 
     protected override void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && !GameManager.Instance.isPaused)
         {
             nextFireTime = Time.time + (1 / fireRate);
 

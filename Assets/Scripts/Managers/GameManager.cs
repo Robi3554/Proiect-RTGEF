@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public int level = 1;
     public int availablePoints;
 
+    public bool isPaused;
+
     private bool isLevelingUp = false;
     private bool continueLevelUp = false;
 
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
         }
 
         isLevelingUp = false;
+        isPaused = false;
     }
 
     public void AddExp(float ammount)
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
         if (!isLevelingUp && expCount >= maxExpNeeded)
         {
             StartCoroutine(LevelUpRoutine());
+            isPaused = true;
         }
 
         UpdateUI();

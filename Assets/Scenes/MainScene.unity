@@ -5026,7 +5026,7 @@ AudioSource:
   m_GameObject: {fileID: 370623703}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6140927142532645203, guid: a1bdd988fccf19545b1e064228b6f60b, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -15018,6 +15018,7 @@ MonoBehaviour:
   maxExpNeeded: 100
   level: 1
   availablePoints: 111
+  isPaused: 0
 --- !u!1 &1446067085
 GameObject:
   m_ObjectHideFlags: 0
@@ -16283,7 +16284,7 @@ AudioSource:
   m_GameObject: {fileID: 1562225244}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8526294235547940945, guid: a1bdd988fccf19545b1e064228b6f60b, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
