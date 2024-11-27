@@ -59,7 +59,7 @@ public class PlayerStats : MonoBehaviour
 
         healthBar.SetMaxHealth(maxHealth);
 
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth((int)currentHealth);
 
         StartCoroutine(RegenHealth());
 
