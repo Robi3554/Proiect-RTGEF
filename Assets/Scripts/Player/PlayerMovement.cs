@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
             float rotationSpeedAdjustment = Mathf.Clamp(distanceToMouse, 0, 1) * rotationSpeed;
 
-            rb.rotation = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSpeedAdjustment * Time.deltaTime);
+            rb.rotation = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSpeedAdjustment);
         }
         else
         {

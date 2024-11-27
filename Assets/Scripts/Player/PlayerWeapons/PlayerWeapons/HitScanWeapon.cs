@@ -5,12 +5,33 @@ using UnityEngine;
 
 public class HitScanWeapon : PlayerBasicWeapon
 {
+    private GameObject startSprite;
+    private GameObject middleSprite;
+    private GameObject endSprite;
+
     public LineRenderer lr;
 
     public float fadeTime;
     public float timeBetweenShots;
 
     public LayerMask enemyMask;
+
+    public GameObject startSpritePrefab;
+    public GameObject middleSpritePrefab;
+    public GameObject endSpritePrefab;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        startSprite = Instantiate(startSpritePrefab);
+        endSprite = Instantiate(endSpritePrefab);
+        middleSprite = Instantiate(middleSpritePrefab);
+
+        startSprite.SetActive(false);
+        endSprite.SetActive(false);
+        middleSprite.SetActive(false);
+    }
 
     protected override void Update()
     {
@@ -34,7 +55,7 @@ public class HitScanWeapon : PlayerBasicWeapon
 
             lr.SetPosition(0, firePoint.position);
 
-            Vector2 finalPoint = firePoint.position + firePoint.up * range;
+            Vector3 finalPoint = firePoint.position + firePoint.up * range;
 
             AudioManager.Instance.PlaySFXClip(AudioManager.Instance.shooting);
 
@@ -57,11 +78,37 @@ public class HitScanWeapon : PlayerBasicWeapon
 
             lr.SetPosition(1, finalPoint);
 
+            startSprite.SetActive(true);
+            endSprite.SetActive(true);
+            middleSprite.SetActive(true);
+
             lr.enabled = true;
+
+            float elapsedTime = 0f;
+
+            while (elapsedTime < fadeTime)
+            {
+                startSprite.transform.position = firePoint.position;
+                startSprite.transform.rotation = firePoint.rotation * Quaternion.Euler(0, 0, 90f);
+
+                endSprite.transform.position = finalPoint;
+                endSprite.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(finalPoint.y - firePoint.position.y, finalPoint.x - firePoint.position.x) * Mathf.Rad2Deg);
+
+                middleSprite.transform.position = (firePoint.position + finalPoint) / 2f;
+                middleSprite.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(finalPoint.y - firePoint.position.y, finalPoint.x - firePoint.position.x) * Mathf.Rad2Deg);
+                middleSprite.transform.localScale = new Vector3(Vector2.Distance(firePoint.position, finalPoint), middleSprite.transform.localScale.y, middleSprite.transform.localScale.z);
+
+                elapsedTime += Time.deltaTime;
+
+                yield return null;
+            }
 
             yield return new WaitForSeconds(fadeTime);
 
             lr.enabled = false;
+            startSprite.SetActive(false);
+            endSprite.SetActive(false);
+            middleSprite.SetActive(false);
 
             yield return new WaitForSeconds(timeBetweenShots);
         }      

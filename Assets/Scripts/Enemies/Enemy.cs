@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float damage;
     public float speed;
+    public float offsetAngle = 90f;
 
     private void Awake()
     {
@@ -30,6 +31,10 @@ public class Enemy : MonoBehaviour
             Vector2 direction = (target.position - transform.position).normalized;
 
             rb.velocity = direction * speed;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            rb.rotation = angle + offsetAngle;
         }
     }
 
@@ -55,10 +60,5 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Instantiate(star, transform.position, Quaternion.identity);
-    }
-
-    private void OnDestroy()
-    {
-
     }
 }

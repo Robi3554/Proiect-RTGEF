@@ -353,6 +353,9 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
+  startSpritePrefab: {fileID: 3346474797256220656, guid: eaea9532c5d97144ab8f62d811bc2bc5, type: 3}
+  middleSpritePrefab: {fileID: 7026031118046044144, guid: 0f7bf178b98e1424eb89a5e61c05ef92, type: 3}
+  endSpritePrefab: {fileID: 5453827656443980654, guid: 32302ba4fb9fde04b9f999a0c51bee90, type: 3}
 --- !u!1 &8813918282683369455
 GameObject:
   m_ObjectHideFlags: 0
