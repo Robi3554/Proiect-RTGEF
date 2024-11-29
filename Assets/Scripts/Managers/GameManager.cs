@@ -12,13 +12,14 @@ public class GameManager : MonoBehaviour
 
     public Slider expSlider;
 
+    public int score;
+
+    [Header("For leveling")]
     public float expCount = 0;
     public int maxExpNeeded = 100;
     public int level = 1;
     public int availablePoints;
-
     public bool isPaused;
-
     private bool isLevelingUp = false;
     private bool continueLevelUp = false;
 
@@ -42,9 +43,16 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void IncreaseScore(int amount)
+    {
+        score += amount;
+    }
+
     private IEnumerator LevelUpRoutine()
     {
         isLevelingUp = true;
+
+        TimeManager.Instance.StopTimer();
 
         while (expCount >= maxExpNeeded)
         {
@@ -70,6 +78,9 @@ public class GameManager : MonoBehaviour
         }
 
         isLevelingUp = false;
+
+        TimeManager.Instance.StartTimer();
+
         isPaused = false;
     }
 
@@ -88,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     private void LevelUp()
     {
-        Debug.Log("You leveled up!");
+        IncreaseScore(level * 100);
         OnLevelUp?.Invoke(InvestmentPointsToAdd() + 5);
         level++;
     }

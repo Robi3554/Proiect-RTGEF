@@ -150,3 +150,5 @@ MonoBehaviour:
   health: 50
   damage: 15
   speed: 5
+  offsetAngle: 90
+  scoreToIncrease: 1

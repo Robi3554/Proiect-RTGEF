@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float offsetAngle = 90f;
 
+    public int scoreToIncrease;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,6 +61,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        GameManager.Instance.IncreaseScore(scoreToIncrease);
         Instantiate(star, transform.position, Quaternion.identity);
     }
 }
