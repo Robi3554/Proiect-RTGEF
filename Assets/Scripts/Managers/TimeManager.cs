@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
 
     public TMP_Text timerText;
 
-    private float timeRemaining;
+    public float timeRemaining;
 
     private bool timerIsRunning;
 
