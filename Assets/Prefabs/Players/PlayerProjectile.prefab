@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 181020529481027269}
   - component: {fileID: 604275650146017655}
   - component: {fileID: 8132399446051706985}
+  - component: {fileID: 2935481074096004085}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: Player
@@ -636,6 +637,18 @@ MonoBehaviour:
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.1
   numberOfFlashes: 5
+--- !u!114 &2935481074096004085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097043317819145596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014d6db3b99a35742be3f790e9b14825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7365537476209022750
 GameObject:
   m_ObjectHideFlags: 0

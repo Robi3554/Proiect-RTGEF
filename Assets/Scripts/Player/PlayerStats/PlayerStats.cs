@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    private PlayerDeath pd;
+
     internal float MaxHealth
     {
         get { return maxHealth; }
@@ -49,6 +51,8 @@ public class PlayerStats : MonoBehaviour
     protected virtual void Awake()
     {
         sr = GetComponentInParent<SpriteRenderer>();
+
+        pd = GetComponentInParent<PlayerDeath>();
     }
 
     protected virtual void Start()
@@ -95,7 +99,7 @@ public class PlayerStats : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                Destroy(gameObject);
+                pd.Die();
             }
         }
     }
