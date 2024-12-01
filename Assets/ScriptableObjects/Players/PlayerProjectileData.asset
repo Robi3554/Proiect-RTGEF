@@ -16,8 +16,8 @@ MonoBehaviour:
   health: 120
   regenPerSec: 0
   moveSpeed: 12
-  damage: 10
-  fireRate: 1
+  damage: 15
+  fireRate: 1.3
   range: 50
   ciritcalMult: 2
   criticalRate: 5

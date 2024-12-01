@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     public int scoreToIncrease;
 
+    public float despawnDistance;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +33,11 @@ public class Enemy : MonoBehaviour
     {
         if (target != null)
         {
+            if(Vector2.Distance(transform.position, target.position) >= despawnDistance)
+            {
+                ReturnEnemy();
+            }
+
             Vector2 direction = (target.position - transform.position).normalized;
 
             rb.velocity = direction * speed;
@@ -37,6 +45,8 @@ public class Enemy : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             rb.rotation = angle + offsetAngle;
+
+            //Debug.Log($"Speed: {speed}, Velocity: {rb.velocity.magnitude}");
         }
     }
 
@@ -51,6 +61,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void ReturnEnemy()
+    {
+        EnemySpawner es = EnemySpawner.Instance;
+
+        Vector2 targetPos = target.position + es.relativeSpawnPositions[Random.Range(0, es.relativeSpawnPositions.Count)].position; 
+
+        rb.position = targetPos;
+    }
+
     private void OnCollisionStay2D(Collision2D col)
     {
         if(col.transform.tag == "Player")
@@ -62,6 +81,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         GameManager.Instance.IncreaseScore(scoreToIncrease);
+        EnemySpawner.Instance.OnEnemyKilled();
         Instantiate(star, transform.position, Quaternion.identity);
     }
 }
