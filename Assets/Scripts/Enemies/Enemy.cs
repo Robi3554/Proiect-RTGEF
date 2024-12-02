@@ -8,9 +8,11 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
 
-    public float health;
-    public float damage;
-    public float speed;
+    public EnemySO enemySO;
+
+    private float health;
+    private float damage;
+    private float speed;
     public float offsetAngle = 90f;
 
     public int scoreToIncrease;
@@ -25,6 +27,10 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        health = enemySO.health;
+        damage = enemySO.damage;
+        speed = enemySO.speed;
     }
 
     void FixedUpdate()

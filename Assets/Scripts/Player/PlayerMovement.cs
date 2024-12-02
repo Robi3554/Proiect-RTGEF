@@ -78,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveDirection = transform.up.normalized;
 
         rb.velocity = moveDirection * moveSpeed * verticalInput;
+
+        if(verticalInput < 0)
+        {
+            rb.velocity = moveDirection * (moveSpeed / 2) * verticalInput;
+        }
     }
 
     private void GetStats()
