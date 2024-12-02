@@ -60,6 +60,10 @@ public class PlayerStats : MonoBehaviour
     {
         GetStats();
 
+        healthBar = FindObjectOfType<HealthBar>();
+
+        text = healthBar.GetComponentInChildren<TextMeshProUGUI>();
+
         currentHealth = maxHealth;
 
         healthBar.SetMaxHealth(maxHealth);

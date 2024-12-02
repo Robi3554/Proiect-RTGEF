@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
 
     public Slider expSlider;
 
+    public GameObject[] playerPrefabs;
+
+    private int characterIndex;
+
     public int score;
 
     [Header("For leveling")]
@@ -27,6 +31,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        characterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        GameObject player = Instantiate(playerPrefabs[characterIndex], transform.position, Quaternion.identity);
+
+        player.name = playerPrefabs[characterIndex].name;
+
         if (Instance == null)
         {
             Instance = this;

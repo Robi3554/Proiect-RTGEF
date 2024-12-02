@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a10f0dbe7e5e54cab444c4d5b18d40, type: 3}
   m_Name: PlayerRaycast Data
   m_EditorClassIdentifier: 
-  playerName: Player RayCast
+  playerName: PlayerRayCast
   health: 100
   regenPerSec: 0
   moveSpeed: 15
