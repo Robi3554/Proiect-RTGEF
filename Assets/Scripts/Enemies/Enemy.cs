@@ -8,8 +8,6 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb;
 
-    public GameObject star;
-
     public float health;
     public float damage;
     public float speed;
@@ -82,6 +80,5 @@ public class Enemy : MonoBehaviour
     {
         GameManager.Instance.IncreaseScore(scoreToIncrease);
         EnemySpawner.Instance.OnEnemyKilled();
-        Instantiate(star, transform.position, Quaternion.identity);
     }
 }

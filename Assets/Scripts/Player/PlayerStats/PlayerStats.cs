@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -102,6 +103,11 @@ public class PlayerStats : MonoBehaviour
                 pd.Die();
             }
         }
+    }
+
+    public void GainHealth(float amount)
+    {
+        currentHealth = Math.Min(currentHealth + amount, maxHealth);
     }
 
     protected IEnumerator RegenHealth()
