@@ -5,26 +5,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Transform target;
-    private Rigidbody2D rb;
+    protected Transform target;
+    protected Rigidbody2D rb;
+    protected Animator anim;
 
-    public EnemySO enemySO;
+    [SerializeField]
+    private EnemySO enemySO;
 
-    private float health;
-    private float damage;
-    private float speed;
+    protected float health;
+    protected float damage;
+    protected float speed;
     public float offsetAngle = 90f;
 
     public int scoreToIncrease;
 
     public float despawnDistance;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -33,7 +36,7 @@ public class Enemy : MonoBehaviour
         speed = enemySO.speed;
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (target != null)
         {
@@ -46,12 +49,22 @@ public class Enemy : MonoBehaviour
 
             rb.velocity = direction * speed;
 
+            if(rb.velocity == Vector2.zero)
+            {
+                anim.Play("Moving");
+            }
+
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             rb.rotation = angle + offsetAngle;
 
             //Debug.Log($"Speed: {speed}, Velocity: {rb.velocity.magnitude}");
         }
+    }
+
+    public void RestartLoop()
+    {
+        anim.Play("Moving", 0, 0.25f);
     }
 
     public void TakeDamage(float damage)
@@ -65,7 +78,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ReturnEnemy()
+    protected void ReturnEnemy()
     {
         EnemySpawner es = EnemySpawner.Instance;
 
@@ -74,7 +87,7 @@ public class Enemy : MonoBehaviour
         rb.position = targetPos;
     }
 
-    private void OnCollisionStay2D(Collision2D col)
+    protected void OnCollisionStay2D(Collision2D col)
     {
         if(col.transform.tag == "Player")
         {
@@ -82,7 +95,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected void Die()
     {
         GameManager.Instance.IncreaseScore(scoreToIncrease);
         EnemySpawner.Instance.OnEnemyKilled();

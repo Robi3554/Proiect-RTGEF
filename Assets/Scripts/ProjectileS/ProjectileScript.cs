@@ -10,7 +10,6 @@ public class ProjectileScript : MonoBehaviour
     protected float yStartPos;
 
     [Header("Projectile Stats")]
-    [SerializeField]
     protected float range;
     protected float speed;
     protected float damage;
