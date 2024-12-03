@@ -7,4 +7,5 @@ public class ShootingEnemySO : EnemySO
 {
     public float range;
     public float fireRate;
+    public float projectileSpeed;
 }

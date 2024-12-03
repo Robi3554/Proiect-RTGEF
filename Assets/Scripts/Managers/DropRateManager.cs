@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class DropRateManager : MonoBehaviour
@@ -14,8 +15,33 @@ public class DropRateManager : MonoBehaviour
 
     public List<Drops> drops;
 
+    private static bool isExitingPlayMode = false;
+
+#if UNITY_EDITOR
+    [InitializeOnLoadMethod]
+    private static void Initialize()
+    {
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private static void OnPlayModeStateChanged(PlayModeStateChange state)
+    {
+        if (state == PlayModeStateChange.ExitingPlayMode)
+        {
+            isExitingPlayMode = true;
+        }
+        else if (state == PlayModeStateChange.EnteredPlayMode)
+        {
+            isExitingPlayMode = false;
+        }
+    }
+#endif
+
     private void OnDestroy()
     {
+        if (!Application.isPlaying || isExitingPlayMode)
+            return;
+
         float randomNumber = Random.Range(0f, 100f);
         List<Drops> possibleDrops = new List<Drops>();
 

@@ -17,8 +17,16 @@ public class EnemyProjectile : ProjectileScript
 
             if (player != null)
             {
+               player.LoseHealth(damage);
                Destroy(gameObject);
             }
         }
+    }
+
+    public void FireProjectile(float damage, float speed, float range)
+    {
+        this.damage = damage;
+        this.speed = speed;
+        this.range = range;
     }
 }

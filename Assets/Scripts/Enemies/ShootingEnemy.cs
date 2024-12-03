@@ -7,20 +7,24 @@ public class ShootingEnemy : Enemy
     [SerializeField]
     private ShootingEnemySO shootingSO;
 
-    private Transform player;
+    private CircleCollider2D cc;
 
     public Transform firePoint;
-    public GameObject Projectile;
+    public GameObject projectile;
 
     [Header("For Shooting")]
     private float nextFireTime;
     private float fireRate;
     private float range;
-    public float visionRange;
+    private float projectileSpeed;
+
+    private bool isShooting = false;
 
     protected override void Awake()
     {
         base.Awake();
+
+        cc = GetComponent<CircleCollider2D>();
     }
 
     protected override void Start()
@@ -29,31 +33,62 @@ public class ShootingEnemy : Enemy
 
         fireRate = shootingSO.fireRate;
         range = shootingSO.range;
+        projectileSpeed = shootingSO.projectileSpeed;
     }
 
     protected override void FixedUpdate()
     {
-        base.FixedUpdate();
+        if (target != null)
+        {
+            if (Vector2.Distance(transform.position, target.position) >= despawnDistance)
+            {
+                ReturnEnemy();
+            }
 
-        int layerMask = 1 << LayerMask.NameToLayer("Player");
+            Vector2 direction = (target.position - transform.position).normalized;
 
-        //RaycastHit2D hit = Physics2D.Raycast(firePoint.position, (player.position - firePoint.position).normalized, visionRange, layerMask);
+            if (!isShooting)
+            {
+                rb.velocity = direction * speed;
 
-        //if (hit.collider != null && hit.collider.CompareTag("Player"))
-        //{
-        //    rb.velocity = Vector2.zero;
+                anim.Play("Moving");
 
-        //    if (Time.time >= nextFireTime)
-        //    {
-        //        nextFireTime = Time.time + (1 / fireRate);
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+                anim.Play("Idle");
+            }
 
-        //        //Shoot();
-        //    }
-        //}
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            rb.rotation = angle + offsetAngle;
+        }
     }
 
-    void OnDrawGizmos()
+    private void OnTriggerStay2D(Collider2D col)
     {
-        Gizmos.DrawLine(transform.position, transform.position + (firePoint.position - transform.position).normalized * visionRange);
+        if (col.CompareTag("Player"))
+        {
+            isShooting = true;
+
+            if (Time.time >= nextFireTime)
+            {
+                nextFireTime = Time.time + (1f / fireRate);
+                Shoot();
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isShooting = false;
+    }
+
+    private void Shoot()
+    {
+        GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation * Quaternion.Euler(0, 0, 180));
+
+        shotProjectile.GetComponent<EnemyProjectile>().FireProjectile(damage, projectileSpeed, range);
     }
 }

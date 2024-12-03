@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3616427637480562624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.221, z: 0}
+  m_LocalPosition: {x: 0, y: -0.259, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7054313521904465375}
   - component: {fileID: 7054313521904465371}
   - component: {fileID: 7054313521904465368}
+  - component: {fileID: 6792457758359786792}
   - component: {fileID: 7054313521904465373}
   - component: {fileID: 7054313521904465366}
   - component: {fileID: 7054313521904465369}
@@ -177,6 +178,22 @@ PolygonCollider2D:
       - {x: -0.07499516, y: -0.18520927}
       - {x: 0.097559094, y: -0.18565032}
       - {x: 0.29572964, y: -0.010681935}
+--- !u!58 &6792457758359786792
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054313521904465374}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!95 &7054313521904465373
 Animator:
   serializedVersion: 5
@@ -215,8 +232,7 @@ MonoBehaviour:
   despawnDistance: 30
   shootingSO: {fileID: 11400000, guid: 894890ad10a72c24b9668c725f95f77a, type: 2}
   firePoint: {fileID: 8587181418327000870}
-  Projectile: {fileID: 781829713662507237, guid: 013a4c7cb9d7dbf479434f85bfb9a66d, type: 3}
-  visionRange: 7
+  projectile: {fileID: 781829713662507237, guid: 013a4c7cb9d7dbf479434f85bfb9a66d, type: 3}
 --- !u!114 &7054313521904465369
 MonoBehaviour:
   m_ObjectHideFlags: 0

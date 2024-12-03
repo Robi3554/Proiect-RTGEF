@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
             rb.velocity = direction * speed;
 
-            if(rb.velocity == Vector2.zero)
+            if(rb.velocity != Vector2.zero)
             {
                 anim.Play("Moving");
             }
