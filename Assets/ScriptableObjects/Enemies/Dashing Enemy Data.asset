@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Dashing Enemy Data
   m_EditorClassIdentifier: 
   health: 40
-  damage: 20
+  damage: 10
   speed: 4
-  dashingTime: 0.4
-  dahingPower: 30
-  dasingCooldown: 5
+  dashingPower: 30
+  dashingCooldown: 5
