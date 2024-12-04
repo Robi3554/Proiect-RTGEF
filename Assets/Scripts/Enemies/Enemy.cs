@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
         rb.position = targetPos;
     }
 
-    protected void OnCollisionStay2D(Collision2D col)
+    protected virtual void OnCollisionStay2D(Collision2D col)
     {
         if(col.transform.tag == "Player")
         {
