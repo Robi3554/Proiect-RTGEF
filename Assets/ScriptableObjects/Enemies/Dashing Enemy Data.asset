@@ -17,3 +17,4 @@ MonoBehaviour:
   speed: 4
   dashingPower: 30
   dashingCooldown: 5
+  dashTime: 0.4

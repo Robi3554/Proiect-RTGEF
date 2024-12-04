@@ -7,4 +7,5 @@ public class DashingEnemySO : EnemySO
 {
     public float dashingPower;
     public float dashingCooldown;
+    public float dashTime;
 }

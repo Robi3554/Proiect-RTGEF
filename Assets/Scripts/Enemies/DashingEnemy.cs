@@ -6,10 +6,13 @@ public class DashingEnemy : Enemy
 {
     public DashingEnemySO dashingSO;
 
-    private CircleCollider2D cc;
+    private EchoEffect ee;
+
+    public float dashPrepTime;
 
     private float dashingPower;
     private float dashingCooldown;
+    private float dashTime;
     private bool isDashing = false;
     private bool canDash = true;
 
@@ -17,7 +20,7 @@ public class DashingEnemy : Enemy
     {
         base.Awake();
 
-        cc = GetComponent<CircleCollider2D>();
+        ee = GetComponent<EchoEffect>();
     }
 
     protected override void Start()
@@ -26,6 +29,7 @@ public class DashingEnemy : Enemy
 
         dashingPower = dashingSO.dashingPower;
         dashingCooldown = dashingSO.dashingCooldown;
+        dashTime = dashingSO.dashTime;
     }
 
     protected override void FixedUpdate()
@@ -78,17 +82,20 @@ public class DashingEnemy : Enemy
         }
     }
 
-    public void SetDashFalse()
-    {
-        isDashing = false;
-    }
-
     public IEnumerator Dash()
     {
         canDash = false;
 
+        yield return new WaitForSeconds(dashPrepTime);
+
         Vector2 directionToPlayer = (target.position - transform.position).normalized;
         rb.velocity = directionToPlayer * dashingPower;
+        ee.canEcho = true;
+
+        yield return new WaitForSeconds(dashTime);
+
+        isDashing = false;
+        ee.canEcho = false;
 
         yield return new WaitForSeconds(dashingCooldown);
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5118765168245705295}
   - component: {fileID: 5118765168245705293}
   - component: {fileID: 5118765168245705294}
+  - component: {fileID: 9023050943586668895}
   m_Layer: 8
   m_Name: Dashing Enemy
   m_TagString: Enemy
@@ -196,3 +197,18 @@ MonoBehaviour:
   scoreToIncrease: 2
   despawnDistance: 30
   dashingSO: {fileID: 11400000, guid: 93b3bbd0a11377c48a3f057cbce61090, type: 2}
+  dashPrepTime: 0.5
+--- !u!114 &9023050943586668895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118765168245705288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62994b67f06bf348b6b3aff010e6002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  echo: {fileID: 6525973268554776857, guid: ea185f5cadea7694ebe6bdca4b277532, type: 3}
+  startTime: 0.1
