@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2375751026394029989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3967015477039724340}
+  - component: {fileID: 3690262764059840307}
+  m_Layer: 2
+  m_Name: Radius
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3967015477039724340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375751026394029989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5118765168245705292}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3690262764059840307
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375751026394029989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &5118765168245705288
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,10 +60,10 @@ GameObject:
   - component: {fileID: 5118765168245705291}
   - component: {fileID: 5118765168245705290}
   - component: {fileID: 5118765168245705289}
-  - component: {fileID: 5118765168245705295}
   - component: {fileID: 5118765168245705293}
   - component: {fileID: 5118765168245705294}
   - component: {fileID: 9023050943586668895}
+  - component: {fileID: 6052525487666980788}
   m_Layer: 8
   m_Name: Dashing Enemy
   m_TagString: Enemy
@@ -34,7 +82,8 @@ Transform:
   m_LocalPosition: {x: -9.85, y: -2.86, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 14}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3967015477039724340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -144,22 +193,6 @@ PolygonCollider2D:
       - {x: 0.19417858, y: -0.029449284}
       - {x: 0.18967676, y: 0.12319934}
       - {x: 0.1875, y: 0.12897748}
---- !u!58 &5118765168245705295
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5118765168245705288}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!95 &5118765168245705293
 Animator:
   serializedVersion: 5
@@ -212,3 +245,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   echo: {fileID: 6525973268554776857, guid: ea185f5cadea7694ebe6bdca4b277532, type: 3}
   startTime: 0.1
+--- !u!114 &6052525487666980788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118765168245705288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee79262cc762b004a9acb9f801c20297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Star
+    itemPrefab: {fileID: 8618073541792893373, guid: c99b5d8a6bc66e24398e42c46a8b729f, type: 3}
+    dropRate: 100
+  - name: Heart
+    itemPrefab: {fileID: 8266464244633256998, guid: 74e326ff647055e46be4a6036b3c8584, type: 3}
+    dropRate: 20

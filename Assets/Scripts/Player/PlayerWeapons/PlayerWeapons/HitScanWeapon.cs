@@ -71,7 +71,7 @@ public class HitScanWeapon : PlayerBasicWeapon
 
                     enemiesDamaged++;
 
-                    if (enemiesDamaged >= enemyHit)
+                    if (enemiesDamaged >= pierce)
                         break;
                 }
             }

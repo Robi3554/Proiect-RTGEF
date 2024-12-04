@@ -21,7 +21,7 @@ MonoBehaviour:
   range: 60
   ciritcalMult: 2
   criticalRate: 5
-  enemyHit: 1
+  pierce: 1
   shootCount: 1
   maxNrOfMinions: 3
   timeBetweenSummons: 3

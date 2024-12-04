@@ -18,7 +18,7 @@ public class PlayerScriptableObject : ScriptableObject
     public float range;
     public float ciritcalMult;
     public int criticalRate;
-    public int enemyHit;
+    public int pierce;
     public int shootCount;
 
     [Header("For Summoners")]

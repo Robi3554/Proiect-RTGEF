@@ -9,6 +9,11 @@ public class SkillTreeSelection : MonoBehaviour
 
     private void Start()
     {
+        Selection();
+    }
+
+    public void Selection()
+    {
         string playerName = GameObject.FindGameObjectWithTag("Player").name;
 
         foreach (GameObject skillTree in skillTrees)
@@ -28,6 +33,6 @@ public class SkillTreeSelection : MonoBehaviour
 
         if (words.Length <= 1) return string.Empty;
 
-        return string.Join(" ", words, 0, words.Length - 1);
+        return string.Join("", words, 0, words.Length - 1);
     }
 }

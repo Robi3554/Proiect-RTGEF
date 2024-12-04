@@ -25,7 +25,7 @@ public class BasicWeapon : MonoBehaviour
     protected float range;
     protected float criticalMult;
     protected int criticalRate;
-    protected int enemyHit;
+    protected int pierce;
     protected int shootCount;
 
     protected virtual void Awake()
@@ -64,7 +64,7 @@ public class BasicWeapon : MonoBehaviour
     {
         damage = PlayerStatsManager.Instance.damage;
         fireRate = PlayerStatsManager.Instance.fireRate;
-        enemyHit = PlayerStatsManager.Instance.enemyHit;
+        pierce = PlayerStatsManager.Instance.pierce;
         range = PlayerStatsManager.Instance.range;
         criticalMult = PlayerStatsManager.Instance.criticalMult;
         criticalRate = PlayerStatsManager.Instance.criticalRate;

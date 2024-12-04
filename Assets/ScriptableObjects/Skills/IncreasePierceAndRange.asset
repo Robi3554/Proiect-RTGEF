@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7223aacc602c2242bbe5d27a23d6f0f, type: 3}
   m_Name: IncreasePierceAndRange
   m_EditorClassIdentifier: 
-  skillName: Increase Pierce And Range
   skillDescription: Increase the players pierce and range
   maxLevel: 2
   pointsPerLevel: 7
   skillIcon: {fileID: 21300000, guid: ade39198781e4dc4498bce47eb2652d5, type: 3}
   rangeIncrease: 10
-  enemyHitIncrease: 1
+  pierceIncrease: 1

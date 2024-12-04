@@ -7,11 +7,11 @@ public class IncreasePierceAndRange : SkillSO
 {
     public float rangeIncrease;
 
-    public int enemyHitIncrease;
+    public int pierceIncrease;
 
     public override void HandleEffect()
     {
-        PlayerStatsManager.Instance.ChangeStat(StatType.EnemyHit, enemyHitIncrease);
+        PlayerStatsManager.Instance.ChangeStat(StatType.Pierce, pierceIncrease);
 
         PlayerStatsManager.Instance.ChangeStat(StatType.Range, rangeIncrease);
     }
