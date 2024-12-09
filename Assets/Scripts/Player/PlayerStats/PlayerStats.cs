@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     private PlayerDeath pd;
+    private PlayerDamaged pDam;
 
     internal float MaxHealth
     {
@@ -54,6 +55,8 @@ public class PlayerStats : MonoBehaviour
         sr = GetComponentInParent<SpriteRenderer>();
 
         pd = GetComponentInParent<PlayerDeath>();
+
+        pDam = GetComponent<PlayerDamaged>();
     }
 
     protected virtual void Start()
@@ -98,6 +101,8 @@ public class PlayerStats : MonoBehaviour
     {
         if (canLoseHealth)
         {
+            pDam.InstantiateParticles();
+
             StartCoroutine(IFrames());
 
             currentHealth -= damage;

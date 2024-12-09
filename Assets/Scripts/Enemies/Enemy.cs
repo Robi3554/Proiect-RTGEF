@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -70,6 +71,13 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        if(damage > 0)
+        {
+            Vector3 hitDirection = (transform.position - target.position).normalized;
+
+            GameManager.GenerateFloatingText(Mathf.FloorToInt(damage).ToString(), transform, hitDirection);
+        }
 
         if(health <= 0)
         {

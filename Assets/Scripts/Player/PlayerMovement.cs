@@ -73,15 +73,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
+
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector2 moveDirection = transform.up.normalized;
-
-        rb.velocity = moveDirection * moveSpeed * verticalInput;
-
-        if(verticalInput < 0)
+        if (Mathf.Abs(verticalInput) > 0.01f)
         {
-            rb.velocity = moveDirection * (moveSpeed / 2) * verticalInput;
+            Vector2 moveDirection = transform.up.normalized;
+            float adjustedSpeed = moveSpeed * (verticalInput < 0 ? 0.5f : 1f);
+            rb.velocity = moveDirection * adjustedSpeed * verticalInput;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 

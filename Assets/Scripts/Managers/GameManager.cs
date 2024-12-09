@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,12 @@ public class GameManager : MonoBehaviour
     private int characterIndex;
 
     public int score;
+
+    [Header("Damage Text")]
+    public Canvas damageCanvas;
+    public float textFontSize;
+    public TMP_FontAsset font;
+    public Camera referenceCamera;
 
     [Header("For leveling")]
     public float expCount = 0;
@@ -57,6 +65,90 @@ public class GameManager : MonoBehaviour
         score += amount;
     }
 
+    public static void GenerateFloatingText(string text, Transform target, Vector3 hitDirection, float duration = 1f, float speed = 1f)
+    {
+        if(!Instance.damageCanvas)
+        {
+            return;
+        }
+
+        if (!Instance.referenceCamera)
+        {
+            Instance.referenceCamera = Camera.main;
+        }
+
+        Instance.StartCoroutine(Instance.GenerateFloatingTextCoroutine(text, target, hitDirection, duration, speed));
+    }
+
+    private IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, Vector3 hitDirection, float duration = 1f, float speed = 1f)
+    {
+        GameObject textObj = new GameObject("Damage Floating Text");
+        RectTransform rect = textObj.AddComponent<RectTransform>();
+        TextMeshProUGUI tmPro = textObj.AddComponent<TextMeshProUGUI>();
+
+        tmPro.text = text;
+        tmPro.horizontalAlignment = HorizontalAlignmentOptions.Center;
+        tmPro.verticalAlignment = VerticalAlignmentOptions.Middle;
+        tmPro.fontSize = textFontSize;
+        if (font)
+        {
+            tmPro.font = font;
+        }
+
+        textObj.transform.SetParent(Instance.damageCanvas.transform);
+        textObj.transform.SetAsFirstSibling();
+        rect.position = referenceCamera.WorldToScreenPoint(target.position);
+
+        WaitForEndOfFrame w = new WaitForEndOfFrame();
+        float t = 0;
+
+        Vector3 diagonalOffset = hitDirection.normalized * 50f;
+        float upwardOffset = 0;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+
+            tmPro.color = new Color(tmPro.color.r, tmPro.color.g, tmPro.color.b, 1 - t / duration);
+
+            upwardOffset += speed * Time.deltaTime;
+            if (target != null)
+            {
+                Vector3 screenPosition = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, upwardOffset));
+                screenPosition += diagonalOffset * (1 - t / duration);
+                rect.position = screenPosition;
+            }
+            else
+            {
+                rect.position += new Vector3(diagonalOffset.x * Time.deltaTime, speed * Time.deltaTime, 0);
+            }
+            yield return w;
+        }
+
+        Destroy(textObj);
+    }
+
+
+    public void AddExp(float ammount)
+    {
+        expCount += ammount;
+
+        if (!isLevelingUp && expCount >= maxExpNeeded)
+        {
+            StartCoroutine(LevelUpRoutine());
+            isPaused = true;
+        }
+
+        UpdateUI();
+    }
+
+    private void LevelUp()
+    {
+        IncreaseScore(level * 100);
+        OnLevelUp?.Invoke(InvestmentPointsToAdd() + 5);
+        level++;
+    }
+
     private IEnumerator LevelUpRoutine()
     {
         isLevelingUp = true;
@@ -91,26 +183,6 @@ public class GameManager : MonoBehaviour
         TimeManager.Instance.StartTimer();
 
         isPaused = false;
-    }
-
-    public void AddExp(float ammount)
-    {
-        expCount += ammount;
-
-        if (!isLevelingUp && expCount >= maxExpNeeded)
-        {
-            StartCoroutine(LevelUpRoutine());
-            isPaused = true;
-        }
-
-        UpdateUI();
-    }
-
-    private void LevelUp()
-    {
-        IncreaseScore(level * 100);
-        OnLevelUp?.Invoke(InvestmentPointsToAdd() + 5);
-        level++;
     }
 
     private void UpdateUI()
