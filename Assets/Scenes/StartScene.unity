@@ -628,6 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 40156710}
   - component: {fileID: 40156711}
+  - component: {fileID: 40156712}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -671,6 +672,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6922e7d36afde6f4091e3a72d5eceaae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &40156712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40156709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ccfa37c41af4240a201117ab9d5268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 20005294}
+  - {fileID: 1120382581}
+  - {fileID: 2090414151}
+  selectedAnimationScale: 1.1
+  scaleDuration: 0.2
 --- !u!1001 &91777916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1581,6 +1600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596570316}
+  - component: {fileID: 596570317}
   m_Layer: 5
   m_Name: Player Select
   m_TagString: Untagged
@@ -1613,6 +1633,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &596570317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596570315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ccfa37c41af4240a201117ab9d5268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 367307728}
+  - {fileID: 1319387899}
+  - {fileID: 359082879}
+  - {fileID: 1783661539}
+  selectedAnimationScale: 1.1
+  scaleDuration: 0.2
 --- !u!1 &690307768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690307769}
+  - component: {fileID: 690307770}
   m_Layer: 5
   m_Name: Options Menu
   m_TagString: Untagged
@@ -1651,6 +1691,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &690307770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690307768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ccfa37c41af4240a201117ab9d5268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 1897040838}
+  - {fileID: 1511602888}
+  selectedAnimationScale: 1.1
+  scaleDuration: 0.2
 --- !u!1 &694700058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed;
     public float stopRotationThreshold;
 
+    public Direction currentDirection = Direction.None;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Rotation();
         Movement();
+        CheckMovementDirection();
     }
 
     private void Rotation()
@@ -86,6 +89,55 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+    }
+
+    private void CheckMovementDirection()
+    {
+        Vector2 velocity = rb.velocity;
+
+        if (velocity.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+
+            if (angle >= -22.5f && angle < 22.5f)
+            {
+                currentDirection = Direction.Right;
+            }
+            else if (angle >= 22.5f && angle < 67.5f)
+            {
+                currentDirection = Direction.Up_Right;
+            }
+            else if (angle >= 67.5f && angle < 112.5f)
+            {
+                currentDirection = Direction.Up;
+            }
+            else if (angle >= 112.5f && angle < 157.5f)
+            {
+                currentDirection = Direction.Up_Left;
+            }
+            else if (angle >= 157.5f || angle < -157.5f)
+            {
+                currentDirection = Direction.Left;
+            }
+            else if (angle >= -157.5f && angle < -112.5f)
+            {
+                currentDirection = Direction.Down_Left;
+            }
+            else if (angle >= -112.5f && angle < -67.5f)
+            {
+                currentDirection = Direction.Down;
+            }
+            else if (angle >= -67.5f && angle < -22.5f)
+            {
+                currentDirection = Direction.Down_Right;
+            }
+        }
+        else
+        {
+            currentDirection = Direction.None;
+        }
+
+        Debug.Log("Current Direction: " + currentDirection);
     }
 
     private void GetStats()
