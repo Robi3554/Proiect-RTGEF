@@ -17,9 +17,10 @@ public class MapController : MonoBehaviour
     private Vector3 noTerrainPosition;
 
     [Header("Optimization")]
+    public GameObject map;
     public List<GameObject> spawnedChunks = new List<GameObject>();
     public HashSet<Vector3> spawnedPositions = new HashSet<Vector3>();
-    public GameObject lastChunk;
+    private GameObject lastChunk;
     public float maxChunkDistance;
     private float optimizerCooldown;
     public float optimizerCooldownDuration;
@@ -75,12 +76,66 @@ public class MapController : MonoBehaviour
             noTerrainPosition = directionPosition;
             SpawnChunk();
         }
+
+        Vector3 adjacentPosition1 = Vector3.zero;
+        Vector3 adjacentPosition2 = Vector3.zero;
+
+        switch (pm.currentDirection)
+        {
+            case Direction.Right:
+                adjacentPosition1 = currentChunk.transform.Find("Up").position;
+                adjacentPosition2 = currentChunk.transform.Find("Down").position;
+                break;
+            case Direction.Up_Right:
+                adjacentPosition1 = currentChunk.transform.Find("Up").position;
+                adjacentPosition2 = currentChunk.transform.Find("Right").position;
+                break;
+            case Direction.Up:
+                adjacentPosition1 = currentChunk.transform.Find("Up_Left").position;
+                adjacentPosition2 = currentChunk.transform.Find("Up_Right").position;
+                break;
+            case Direction.Up_Left:
+                adjacentPosition1 = currentChunk.transform.Find("Up").position;
+                adjacentPosition2 = currentChunk.transform.Find("Left").position;
+                break;
+            case Direction.Left:
+                adjacentPosition1 = currentChunk.transform.Find("Up_Left").position;
+                adjacentPosition2 = currentChunk.transform.Find("Down_Left").position;
+                break;
+            case Direction.Down_Left:
+                adjacentPosition1 = currentChunk.transform.Find("Down").position;
+                adjacentPosition2 = currentChunk.transform.Find("Left").position;
+                break;
+            case Direction.Down:
+                adjacentPosition1 = currentChunk.transform.Find("Down_Left").position;
+                adjacentPosition2 = currentChunk.transform.Find("Down_Right").position;
+                break;
+            case Direction.Down_Right:
+                adjacentPosition1 = currentChunk.transform.Find("Down").position;
+                adjacentPosition2 = currentChunk.transform.Find("Right").position;
+                break;
+        }
+
+        if (!Physics2D.OverlapCircle(adjacentPosition1, checkerRadius, spaceMask) && !spawnedPositions.Contains(adjacentPosition1))
+        {
+            noTerrainPosition = adjacentPosition1;
+            SpawnChunk();
+        }
+
+        if (!Physics2D.OverlapCircle(adjacentPosition2, checkerRadius, spaceMask) && !spawnedPositions.Contains(adjacentPosition2))
+        {
+            noTerrainPosition = adjacentPosition2;
+            SpawnChunk();
+        }
     }
+
 
     private void SpawnChunk()
     {
         int rand = Random.Range(0, chunks.Count);
         lastChunk = Instantiate(chunks[rand], noTerrainPosition, Quaternion.identity);
+
+        lastChunk.transform.SetParent(map.transform);
 
         spawnedChunks.Add(lastChunk);
         spawnedPositions.Add(noTerrainPosition);
