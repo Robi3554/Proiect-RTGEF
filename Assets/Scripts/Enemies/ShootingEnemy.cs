@@ -31,8 +31,8 @@ public class ShootingEnemy : Enemy
     {
         base.Start();
 
-        fireRate = shootingSO.fireRate;
-        range = shootingSO.range;
+        fireRate = shootingSO.fireRate * GameManager.Instance.enemyStatMultiplier;
+        range = shootingSO.range * GameManager.Instance.enemyStatMultiplier;
         projectileSpeed = shootingSO.projectileSpeed;
     }
 

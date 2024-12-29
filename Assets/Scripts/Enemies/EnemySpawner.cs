@@ -128,6 +128,7 @@ public class EnemySpawner : MonoBehaviour
         {
             currentWaveCount++;
             CalculateWaveQuota();
+            GameManager.Instance.IncreaseMultiplier(0.1f);
         }
     }
 }

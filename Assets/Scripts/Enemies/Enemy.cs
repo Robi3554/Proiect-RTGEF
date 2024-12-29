@@ -32,9 +32,9 @@ public class Enemy : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-        health = enemySO.health;
-        damage = enemySO.damage;
-        speed = enemySO.speed;
+        health = enemySO.health * GameManager.Instance.enemyStatMultiplier;
+        damage = enemySO.damage * GameManager.Instance.enemyStatMultiplier;
+        speed = enemySO.speed * GameManager.Instance.enemyStatMultiplier;
     }
 
     protected virtual void FixedUpdate()

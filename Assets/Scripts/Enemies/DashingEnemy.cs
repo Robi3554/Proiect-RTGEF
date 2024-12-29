@@ -27,7 +27,7 @@ public class DashingEnemy : Enemy
     {
         base.Start();
 
-        dashingPower = dashingSO.dashingPower;
+        dashingPower = dashingSO.dashingPower * GameManager.Instance.enemyStatMultiplier;
         dashingCooldown = dashingSO.dashingCooldown;
         dashTime = dashingSO.dashTime;
     }

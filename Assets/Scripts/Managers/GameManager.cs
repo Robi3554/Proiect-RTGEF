@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public event Action<int> OnLevelUp;
 
+    public float enemyStatMultiplier = 1f;
+
     private void Awake()
     {
         characterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
@@ -128,6 +130,10 @@ public class GameManager : MonoBehaviour
         Destroy(textObj);
     }
 
+    public void IncreaseMultiplier(float amount)
+    {
+        enemyStatMultiplier += amount;
+    }
 
     public void AddExp(float ammount)
     {
