@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31960b703c0380648b926beb93f9b6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  travelDistance: 20
   beenStruck: {fileID: 6458207062622855643, guid: b624c0e8a2dda27429aced1676af361d, type: 3}
   chainLightningEffect: {fileID: 2430328034461711851, guid: ba5cf7ccc8a3fd0419f11fb585b6c663, type: 3}
+  amountToChain: 4

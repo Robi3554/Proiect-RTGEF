@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
             currentDirection = Direction.None;
         }
 
-        Debug.Log("Current Direction: " + currentDirection);
+        //Debug.Log("Current Direction: " + currentDirection);
     }
 
     private void GetStats()

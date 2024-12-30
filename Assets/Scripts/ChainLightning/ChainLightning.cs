@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class ChainLightning : MonoBehaviour
@@ -22,9 +23,11 @@ public class ChainLightning : MonoBehaviour
 
     private int singleSpawns;
 
+    private float lifetime;
+
     void Start()
     {
-        if(amountToChain == 0) 
+        if (amountToChain == 0)
             Destroy(gameObject);
 
         cc = GetComponent<CircleCollider2D>();
@@ -34,6 +37,17 @@ public class ChainLightning : MonoBehaviour
         startObject = gameObject;
 
         singleSpawns = 1;
+    }
+
+    private void Update()
+    {
+        lifetime += Time.deltaTime;
+
+        if (lifetime > 0.5f)
+        {
+            Debug.Log("Chain Lightning exceeded 0.5 seconds, destroying.");
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -46,15 +60,13 @@ public class ChainLightning : MonoBehaviour
 
                 amountToChain -= 1;
 
-                Instantiate(chainLightningEffect, transform.position, Quaternion.identity);
+                Instantiate(chainLightningEffect, col.gameObject.transform.position, Quaternion.identity);
 
                 Instantiate(beenStruck, col.gameObject.transform);
 
                 Debug.Log("Enemy Hit By Lightning!");
 
                 anim.StopPlayback();
-
-                //col.enabled = false;
 
                 singleSpawns--;
 
@@ -70,7 +82,9 @@ public class ChainLightning : MonoBehaviour
 
                 ps.Emit(emitParams, 1);
 
-                Destroy(gameObject);
+                emitParams.position = (startObject.transform.position +  endObject.transform.position) / 2;
+
+                Destroy(gameObject, 0.4f);
             }
         } 
     }

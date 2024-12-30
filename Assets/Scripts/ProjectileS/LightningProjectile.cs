@@ -8,6 +8,8 @@ public class LightningProjectile : ProjectileScript
 
     public GameObject chainLightningEffect;
 
+    public int amountToChain;
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -24,7 +26,7 @@ public class LightningProjectile : ProjectileScript
                 enemy.TakeDamage(damage);
                 Instantiate(beenStruck, col.gameObject.transform);
                 chainLightningEffect.GetComponent<ChainLightning>().damage = damage;
-                chainLightningEffect.GetComponent<ChainLightning>().amountToChain = 5;
+                chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
                 Instantiate(chainLightningEffect, col.transform.position, Quaternion.identity);
             }
 
