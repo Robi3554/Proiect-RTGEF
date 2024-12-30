@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -144,12 +144,12 @@ TextureImporter:
       name: Lightning Strike_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 8
+        width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,18 +165,18 @@ TextureImporter:
       name: Lightning Strike_1
       rect:
         serializedVersion: 2
-        x: 21
+        x: 16
         y: 0
-        width: 9
+        width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 512356cc2d49ab24ca3714996a46e6ac
+      spriteID: 9e581dd0b6494734d9d2e2f01a4c381a
       internalID: -1480245527
       vertices: []
       indices: 
@@ -186,18 +186,18 @@ TextureImporter:
       name: Lightning Strike_2
       rect:
         serializedVersion: 2
-        x: 36
+        x: 32
         y: 0
-        width: 9
+        width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3f9c66331b5a9540b573e2df7315f19
+      spriteID: 981f0c08d114c384fa7884623d4aff3d
       internalID: -1176949131
       vertices: []
       indices: 
@@ -207,18 +207,18 @@ TextureImporter:
       name: Lightning Strike_3
       rect:
         serializedVersion: 2
-        x: 53
+        x: 48
         y: 0
-        width: 5
+        width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72ef13e1f9f914843a7b15e683e13e06
+      spriteID: cc8569067ee4be94998d7d3b6cb8d833
       internalID: -1774444429
       vertices: []
       indices: 
@@ -228,18 +228,18 @@ TextureImporter:
       name: Lightning Strike_4
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 0
-        width: 6
+        width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a2ad6507135ad040a5de11542df160b
+      spriteID: 7ab957997b599874ab58dcde9a06f045
       internalID: -1836321452
       vertices: []
       indices: 

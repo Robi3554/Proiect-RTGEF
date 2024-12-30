@@ -40,10 +40,6 @@ public class LightningProjectile : ProjectileScript
             {
                 destructible.DamageObject();
                 Destroy(gameObject);
-                Instantiate(beenStruck, col.gameObject.transform);
-                chainLightningEffect.GetComponent<ChainLightning>().damage = damage;
-                chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
-                Instantiate(chainLightningEffect, col.transform.position, Quaternion.identity);
             }
         }
     }
