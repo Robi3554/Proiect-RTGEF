@@ -7,14 +7,14 @@ public class ChainLightning : MonoBehaviour
 {
     private CircleCollider2D cc;
     private Animator anim;
-    private ParticleSystem ps;
 
     public GameObject chainLightningEffect;
-
     public GameObject beenStruck;
 
     private GameObject startObject;
     public GameObject endObject;
+
+    public GameObject travelingSprite;
 
     public LayerMask enemyLayer;
 
@@ -22,8 +22,9 @@ public class ChainLightning : MonoBehaviour
     public int amountToChain;
 
     private int singleSpawns;
-
     private float lifetime;
+
+    private LineRenderer lineRenderer;
 
     void Start()
     {
@@ -32,11 +33,12 @@ public class ChainLightning : MonoBehaviour
 
         cc = GetComponent<CircleCollider2D>();
         anim = GetComponent<Animator>();
-        ps = GetComponent<ParticleSystem>();
+        lineRenderer = GetComponent<LineRenderer>();
 
         startObject = gameObject;
-
         singleSpawns = 1;
+
+        lineRenderer.enabled = false;
     }
 
     private void Update()
@@ -52,40 +54,49 @@ public class ChainLightning : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(enemyLayer == (enemyLayer | (1 << col.gameObject.layer)) && !col.GetComponentInChildren<EnemyStruck>())
+        if (enemyLayer == (enemyLayer | (1 << col.gameObject.layer)) && !col.GetComponentInChildren<EnemyStruck>())
         {
-            if(singleSpawns != 0)
+            if (singleSpawns != 0)
             {
                 endObject = col.gameObject;
-
                 amountToChain -= 1;
 
+                // Create effects at the target location
                 Instantiate(chainLightningEffect, col.gameObject.transform.position, Quaternion.identity);
-
                 Instantiate(beenStruck, col.gameObject.transform);
 
                 Debug.Log("Enemy Hit By Lightning!");
 
                 anim.StopPlayback();
-
                 singleSpawns--;
 
-                ps.Play();
+                // Enable the line renderer
+                lineRenderer.enabled = true;
 
-                var emitParams = new ParticleSystem.EmitParams();
+                // Set start and end positions of the line renderer
+                lineRenderer.SetPosition(0, startObject.transform.position);
+                lineRenderer.SetPosition(1, endObject.transform.position);
 
-                emitParams.position = startObject.transform.position;
+                // Calculate direction and angle between start and end
+                Vector3 direction = endObject.transform.position - startObject.transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-                ps.Emit(emitParams, 1);
+                // Calculate distance between the two points
+                float distance = direction.magnitude;
 
-                emitParams.position = endObject.transform.position;
+                // Create and position the traveling sprite at the midpoint
+                GameObject spriteInstance = Instantiate(travelingSprite, startObject.transform.position, Quaternion.identity);
 
-                ps.Emit(emitParams, 1);
+                // Stretch the sprite to cover the full distance
+                spriteInstance.transform.localScale = new Vector3(distance, spriteInstance.transform.localScale.y, spriteInstance.transform.localScale.z);
 
-                emitParams.position = (startObject.transform.position +  endObject.transform.position) / 2;
+                // Rotate the sprite to face the line's direction
+                spriteInstance.transform.rotation = Quaternion.Euler(0, 0, angle + 90); // Ensure it follows the line direction
 
+                // Destroy the sprite after a short delay
+                Destroy(spriteInstance, 0.4f);
                 Destroy(gameObject, 0.4f);
             }
-        } 
+        }
     }
 }

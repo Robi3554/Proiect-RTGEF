@@ -142,5 +142,4 @@ public class HitScanWeapon : PlayerBasicWeapon
                 yield return new WaitForSeconds(timeBetweenShots);
             }
         }
-    }
-
+}

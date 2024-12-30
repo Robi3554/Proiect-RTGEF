@@ -32,6 +32,20 @@ public class LightningProjectile : ProjectileScript
 
             Destroy(gameObject);
         }
+        if (col.CompareTag("Destructable"))
+        {
+            DestructibleObject destructible = col.gameObject.GetComponent<DestructibleObject>();
+
+            if (destructible != null)
+            {
+                destructible.DamageObject();
+                Destroy(gameObject);
+                Instantiate(beenStruck, col.gameObject.transform);
+                chainLightningEffect.GetComponent<ChainLightning>().damage = damage;
+                chainLightningEffect.GetComponent<ChainLightning>().amountToChain = amountToChain;
+                Instantiate(chainLightningEffect, col.transform.position, Quaternion.identity);
+            }
+        }
     }
 
     protected override void Start()

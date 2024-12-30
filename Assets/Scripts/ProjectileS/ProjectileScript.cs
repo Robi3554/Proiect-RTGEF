@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -54,6 +55,16 @@ public class ProjectileScript : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+            }
+        }
+        if (col.CompareTag("Destructable"))
+        {
+            DestructibleObject destructible = col.gameObject.GetComponent<DestructibleObject>();
+
+            if(destructible != null)
+            {
+                destructible.DamageObject();
+                Destroy(gameObject);
             }
         }
     }

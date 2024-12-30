@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7907155942793591121}
   m_Layer: 9
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,3 +169,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotsBeforeDestroy: 2
   damage: 5
+  noDeath: 0

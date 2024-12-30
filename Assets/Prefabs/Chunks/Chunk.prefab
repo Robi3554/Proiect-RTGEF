@@ -494,6 +494,7 @@ MonoBehaviour:
   - {fileID: 4322084568140983568}
   objectPrefabs:
   - {fileID: 7907155942793591126, guid: 5a47cd94ed2e3e94898610f6af3edbc2, type: 3}
+  - {fileID: 2473499198415025658, guid: a5e1fddb451da0241a8779508656cbba, type: 3}
 --- !u!61 &4322084568451089695
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,30 +6,17 @@ public class DestructibleObject : MonoBehaviour
 {
     private Animator anim;
 
-    private bool noAnim = false;
-
     private int counter;
 
     public int shotsBeforeDestroy;
 
     public float damage;
 
+    public bool noDeath;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
-        if (shotsBeforeDestroy <= 0)
-        {
-            Debug.LogError("ShotsBeforeDestroy set to and invalid value!");
-        }
-
-        if(anim == null)
-        {
-            noAnim = true;
-        }
     }
 
     public void DamageObject()
@@ -38,7 +25,7 @@ public class DestructibleObject : MonoBehaviour
 
         if (counter >= shotsBeforeDestroy)
         {
-            if (!noAnim)
+            if (!noDeath)
             {
                 anim.Play("Destroy");
             }
