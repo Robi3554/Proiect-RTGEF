@@ -27,3 +27,4 @@ MonoBehaviour:
   timeBetweenSummons: 0
   projectileSpeed: 30
   projectileCount: 1
+  specialProjectileChance: 15

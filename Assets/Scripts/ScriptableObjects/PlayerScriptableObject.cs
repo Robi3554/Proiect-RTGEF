@@ -28,4 +28,5 @@ public class PlayerScriptableObject : ScriptableObject
     [Header("For Projectiles")]
     public float projectileSpeed;
     public int projectileCount;
+    public int specialProjectileChance;
 }

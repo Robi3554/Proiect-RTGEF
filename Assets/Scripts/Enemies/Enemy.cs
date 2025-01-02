@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        health -= (int)damage;
 
         if(damage > 0)
         {

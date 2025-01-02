@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillSO : ScriptableObject
+public class  SkillSO : ScriptableObject
 {
     [TextArea]
     public string skillDescription;

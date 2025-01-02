@@ -64,6 +64,8 @@ public class ChainLightning : MonoBehaviour
 
                 Instantiate(beenStruck, col.gameObject.transform);
 
+                col.gameObject.GetComponent<Enemy>().TakeDamage(PlayerStatsManager.Instance.damage / 2);
+
                 Debug.Log("Enemy Hit By Lightning!");
 
                 anim.StopPlayback();

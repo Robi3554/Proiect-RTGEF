@@ -371,7 +371,8 @@ MonoBehaviour:
   fp_2: {fileID: 272254708936344920}
   fp_3: {fileID: 356117672997592745}
   fp_4: {fileID: 3632482091591212414}
-  projectile: {fileID: 8356338289090160391, guid: f5852827ab0f4474884530cea592e2b1, type: 3}
+  basicProjectile: {fileID: 8356338289090160391, guid: 34566166639bfca4389cada3f70d7e03, type: 3}
+  specialProjectiles: []
 --- !u!1 &4763724369583041475
 GameObject:
   m_ObjectHideFlags: 0

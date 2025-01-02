@@ -20,6 +20,7 @@ public class ProjectileWeapon : PlayerBasicWeapon
 
     protected float projectileSpeed;
     protected int projectileCount;
+    protected int specialProjectileChance;
 
     public GameObject fp_1;
     public GameObject fp_2;
@@ -31,7 +32,9 @@ public class ProjectileWeapon : PlayerBasicWeapon
     private Transform[] fp_3Children;
     private Transform[] fp_4Children;
 
-    public GameObject projectile;
+    public GameObject basicProjectile;
+
+    public List<GameObject> specialProjectiles;
 
     protected override void Awake()
     {
@@ -98,9 +101,32 @@ public class ProjectileWeapon : PlayerBasicWeapon
 
     private void ProjectileFire(Transform firePoint)
     {
-        GameObject shotProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        GameObject shotProjectile;
+
+        if (specialProjectiles.Count == 0)
+        {
+            shotProjectile = Instantiate(basicProjectile, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            int rand = Random.Range(0, 100);
+
+            if(rand <= specialProjectileChance)
+            {
+                shotProjectile = Instantiate(specialProjectiles[Random.Range(0, specialProjectiles.Count)], firePoint.position, firePoint.rotation);
+            }
+            else
+            {
+                shotProjectile = Instantiate(basicProjectile, firePoint.position, firePoint.rotation);
+            }
+        }
 
         shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, range, pierce);
+    }
+
+    public void AddSpecialProjectile(GameObject projectile)
+    {
+        specialProjectiles.Add(projectile);
     }
 
     private void CheckFP()
@@ -155,5 +181,6 @@ public class ProjectileWeapon : PlayerBasicWeapon
 
         projectileSpeed = PlayerStatsManager.Instance.projectileSpeed;
         ProjectileCount = PlayerStatsManager.Instance.projectileCount;
+        specialProjectileChance = PlayerStatsManager.Instance.specialProjectileChance;
     }
 }
