@@ -34,7 +34,10 @@ public class DestructibleObject : MonoBehaviour
 
     public void DestroyObject()
     {
-        Destroy(gameObject);
+        if(!noDeath)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D col)

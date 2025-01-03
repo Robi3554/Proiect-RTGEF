@@ -1641,7 +1641,7 @@ PrefabInstance:
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: skillSO
       value: 
-      objectReference: {fileID: 11400000, guid: 70a62782c6520384ea4fcecd6d3e087b, type: 2}
+      objectReference: {fileID: 11400000, guid: cf733182ee7fe4b469499b900716d228, type: 2}
     - target: {fileID: 4207757429241835252, guid: 7438a4181bcec924594ec22da21bfb13, type: 3}
       propertyPath: prerequisiteSkillSlots.Array.size
       value: 1
@@ -9926,11 +9926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8458452831490176814, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.07
+      value: -9.57
       objectReference: {fileID: 0}
     - target: {fileID: 8458452831490176814, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9090843
+      value: 5.37
       objectReference: {fileID: 0}
     - target: {fileID: 8458452831490176814, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10247,11 +10247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8458452831490176814, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.91
+      value: 7.74
       objectReference: {fileID: 0}
     - target: {fileID: 8458452831490176814, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.8748846
+      value: 4.26
       objectReference: {fileID: 0}
     - target: {fileID: 8458452831490176814, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11527,7 +11527,7 @@ MonoBehaviour:
   expCount: 0
   maxExpNeeded: 100
   level: 1
-  availablePoints: 111
+  availablePoints: 200
   isPaused: 0
   enemyStatMultiplier: 1
 --- !u!1001 &1448482727

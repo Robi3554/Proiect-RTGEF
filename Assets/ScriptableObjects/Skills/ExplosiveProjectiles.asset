@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa10ef9a303124d4bafadea57d0c3a8c, type: 3}
+  m_Name: ExplosiveProjectiles
+  m_EditorClassIdentifier: 
+  skillDescription: The player can fire explosive projectiles that deals triple damage
+  maxLevel: 1
+  pointsPerLevel: 40
+  skillIcon: {fileID: 21300000, guid: edd8196a3bbe2774594ffc61df0a2fdb, type: 3}
+  projectile: {fileID: 7305786143131652087, guid: 06745b3d1c5ad7c4fbd4179924f3eafc, type: 3}
+  chanceToAdd: 5
