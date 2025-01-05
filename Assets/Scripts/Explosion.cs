@@ -6,9 +6,9 @@ public class Explosion : MonoBehaviour
 {
     private float damage;
 
-    void Start()
+    private void Start()
     {
-        damage = PlayerStatsManager.Instance.damage * 3f;
+        damage = PlayerStatsManager.Instance.damage * PlayerStatsManager.Instance.projectileExplosionModifier;
     }
 
     private void OnTriggerEnter2D(Collider2D col)

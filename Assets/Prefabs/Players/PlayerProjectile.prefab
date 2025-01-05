@@ -373,6 +373,7 @@ MonoBehaviour:
   fp_4: {fileID: 3632482091591212414}
   basicProjectile: {fileID: 8356338289090160391, guid: 34566166639bfca4389cada3f70d7e03, type: 3}
   specialProjectiles: []
+  onlySpeciaProjectiles: 0
 --- !u!1 &4763724369583041475
 GameObject:
   m_ObjectHideFlags: 0

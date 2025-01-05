@@ -28,3 +28,5 @@ MonoBehaviour:
   projectileSpeed: 25
   projectileCount: 1
   specialProjectileChance: 30
+  projectileExplosionModifier: 3
+  amountToChainLightning: 4

@@ -29,4 +29,6 @@ public class PlayerScriptableObject : ScriptableObject
     public float projectileSpeed;
     public int projectileCount;
     public int specialProjectileChance;
+    public int projectileExplosionModifier;
+    public int amountToChainLightning;
 }

@@ -31,6 +31,8 @@ public class PlayerStatsManager : MonoBehaviour
     internal float projectileSpeed;
     internal int projectileCount;
     internal int specialProjectileChance;
+    internal int projectileExplosionModifier;
+    internal int amountToChainLightning;
 
     public event Action OnStatsChanged;
 
@@ -75,6 +77,8 @@ public class PlayerStatsManager : MonoBehaviour
         projectileSpeed = stats.projectileSpeed;
         projectileCount = stats.projectileCount;
         specialProjectileChance = stats.specialProjectileChance;
+        projectileExplosionModifier = stats.projectileExplosionModifier;
+        amountToChainLightning = stats.amountToChainLightning;
 
         OnStatsChanged?.Invoke();
     }
@@ -128,6 +132,12 @@ public class PlayerStatsManager : MonoBehaviour
             case StatType.SpecialProjectileChance:
                 specialProjectileChance += (int)amount;
                 break;
+            case StatType.ProjectileExplosionModifier:
+                projectileExplosionModifier += (int)amount;
+                break;
+            case StatType.AmountToChainLightning:
+                amountToChainLightning += (int)amount;
+                break;
         }
 
         OnStatsChanged?.Invoke();
@@ -150,5 +160,7 @@ public enum StatType
     TimeBetweenSummons,
     ProjectileSpeed,
     ProjectileCount,
-    SpecialProjectileChance
+    SpecialProjectileChance,
+    ProjectileExplosionModifier,
+    AmountToChainLightning
 }

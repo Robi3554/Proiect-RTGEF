@@ -10,6 +10,13 @@ public class LightningProjectile : ProjectileScript
 
     public int amountToChain;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        amountToChain = PlayerStatsManager.Instance.amountToChainLightning;
+    }
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -42,10 +49,5 @@ public class LightningProjectile : ProjectileScript
                 Destroy(gameObject);
             }
         }
-    }
-
-    protected override void Start()
-    {
-        base.Start();
     }
 }

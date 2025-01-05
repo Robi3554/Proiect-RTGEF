@@ -36,6 +36,8 @@ public class ProjectileWeapon : PlayerBasicWeapon
 
     public List<GameObject> specialProjectiles;
 
+    public bool onlySpeciaProjectiles;
+
     protected override void Awake()
     {
        base.Awake();
@@ -111,7 +113,7 @@ public class ProjectileWeapon : PlayerBasicWeapon
         {
             int rand = Random.Range(0, 100);
 
-            if(rand <= specialProjectileChance)
+            if(rand <= specialProjectileChance || onlySpeciaProjectiles)
             {
                 shotProjectile = Instantiate(specialProjectiles[Random.Range(0, specialProjectiles.Count)], firePoint.position, firePoint.rotation);
             }
