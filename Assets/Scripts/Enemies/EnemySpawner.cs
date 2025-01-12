@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -37,6 +38,10 @@ public class EnemySpawner : MonoBehaviour
     public int maxEnemiesAllowed;
     public bool maxEnemiesReached = false;
 
+    private bool isTransitioningWave;
+
+    public TMP_Text waveText;
+
     [Header("Spawn Positions")]
     public List<Transform> relativeSpawnPositions;
 
@@ -60,18 +65,23 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if(currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0)
+        if (!isTransitioningWave &&  
+            currentWaveCount < waves.Count &&
+            waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota &&
+            enemiesAlive == 0)
         {
             StartCoroutine(BeginNextWave());
         }
 
         spawnTimer += Time.deltaTime;
-
-        if(spawnTimer >= waves[currentWaveCount].spawnInterval)
+        if (spawnTimer >= waves[currentWaveCount].spawnInterval &&
+            waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota)
         {
             spawnTimer = 0f;
             SpawnEnemies();
         }
+
+        waveText.text = "Wave : " + (currentWaveCount + 1).ToString();
     }
 
     private void CalculateWaveQuota()
@@ -122,13 +132,27 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator BeginNextWave()
     {
+        isTransitioningWave = true;
+
         yield return new WaitForSeconds(waveInterval);
 
-        if(currentWaveCount < waves.Count - 1)
+        if (currentWaveCount < waves.Count - 1 &&
+            waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota &&
+            enemiesAlive == 0)
         {
             currentWaveCount++;
+
+            foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
+            {
+                enemyGroup.spawnCount = 0;
+            }
+            waves[currentWaveCount].spawnCount = 0;
+
             CalculateWaveQuota();
             GameManager.Instance.IncreaseMultiplier(0.1f);
+
         }
+
+        isTransitioningWave = false;
     }
 }

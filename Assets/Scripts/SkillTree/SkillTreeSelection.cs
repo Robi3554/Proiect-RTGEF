@@ -33,6 +33,8 @@ public class SkillTreeSelection : MonoBehaviour
 
         if (words.Length <= 1) return string.Empty;
 
+        Debug.Log(string.Join("", words, 0, words.Length - 1));
+
         return string.Join("", words, 0, words.Length - 1);
     }
 }

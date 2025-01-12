@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
     {
         isLevelingUp = true;
 
-        TimeManager.Instance.StopTimer();
+        //TimeManager.Instance.StopTimer();
 
         while (expCount >= maxExpNeeded)
         {
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
 
         isLevelingUp = false;
 
-        TimeManager.Instance.StartTimer();
+        //TimeManager.Instance.StartTimer();
 
         isPaused = false;
     }

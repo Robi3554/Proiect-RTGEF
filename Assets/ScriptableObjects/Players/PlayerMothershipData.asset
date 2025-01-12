@@ -16,7 +16,7 @@ MonoBehaviour:
   health: 200
   regenPerSec: 0.1
   moveSpeed: 10
-  damage: 10
+  damage: 20
   fireRate: 1.5
   range: 60
   ciritcalMult: 2
@@ -27,3 +27,6 @@ MonoBehaviour:
   timeBetweenSummons: 3
   projectileSpeed: 20
   projectileCount: 1
+  specialProjectileChance: 0
+  projectileExplosionModifier: 0
+  amountToChainLightning: 0

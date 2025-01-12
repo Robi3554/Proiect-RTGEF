@@ -10,7 +10,8 @@ public class GameOverManager : MonoBehaviour
 
     public FadeToBlack fade;
 
-    public TMP_Text timeText;
+    //public TMP_Text timeText;
+    public TMP_Text waveText;
     public TMP_Text scoreText;
 
     private void Awake()
@@ -29,8 +30,9 @@ public class GameOverManager : MonoBehaviour
     public void StartDeathScreen()
     {
         fade.TransitionIn();
-        TimeManager.Instance.StopTimer();
-        timeText.text = "Time : \n" + TimeManager.Instance.timerText.text;
+        //TimeManager.Instance.StopTimer();
+        //timeText.text = "Time : \n" + TimeManager.Instance.timerText.text;
+        waveText.text = "Wave : " + (EnemySpawner.Instance.currentWaveCount + 1).ToString();
         scoreText.text = "Score : \n" + GameManager.Instance.score.ToString();
     }
 
