@@ -100,17 +100,18 @@ public class EnemySpawner : MonoBehaviour
     {
         if (waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota && !maxEnemiesReached)
         {
-            foreach(var enemyGroup in waves[currentWaveCount].enemyGroups)
+            foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
             {
-                if(enemyGroup.spawnCount < enemyGroup.enemyCount)
+                if (enemyGroup.spawnCount < enemyGroup.enemyCount)
                 {
-                    if(enemiesAlive >= maxEnemiesAllowed)
+                    if (enemiesAlive >= maxEnemiesAllowed)
                     {
                         maxEnemiesReached = true;
                         return;
                     }
 
-                    Instantiate(enemyGroup.enemyPrefab, player.position + relativeSpawnPositions[Random.Range(0, relativeSpawnPositions.Count)].position, Quaternion.identity);
+                    var spawnPosition = player.position + relativeSpawnPositions[Random.Range(0, relativeSpawnPositions.Count)].position;
+                    Instantiate(enemyGroup.enemyPrefab, spawnPosition, Quaternion.identity);
 
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawnCount++;
@@ -119,15 +120,24 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        if(enemiesAlive < maxEnemiesAllowed)
+        if (enemiesAlive < maxEnemiesAllowed)
         {
             maxEnemiesReached = false;
         }
     }
 
+
     public void OnEnemyKilled()
     {
-        enemiesAlive--;
+        if (enemiesAlive > 0)
+        {
+            enemiesAlive--;
+            Debug.Log($"Enemy killed. Enemies alive: {enemiesAlive}");
+        }
+        else
+        {
+            Debug.LogWarning("Tried to decrease enemiesAlive when it is already 0 or negative.");
+        }
     }
 
     private IEnumerator BeginNextWave()

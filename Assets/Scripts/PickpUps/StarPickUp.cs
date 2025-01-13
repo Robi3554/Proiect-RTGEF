@@ -10,7 +10,8 @@ public class StarPickUp : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.AddExp(expToAdd);
+            GameManager.Instance.AddExp(Mathf.Round(expToAdd * GameManager.Instance.enemyStatMultiplier));
+            Debug.Log(Mathf.Round(expToAdd * GameManager.Instance.enemyStatMultiplier));
             Destroy(gameObject);
         }
     }
