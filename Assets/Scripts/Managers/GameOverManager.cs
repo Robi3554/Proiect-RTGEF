@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameOverManager : MonoBehaviour
     //public TMP_Text timeText;
     public TMP_Text waveText;
     public TMP_Text scoreText;
+
+    public Button mainMenuButton;
 
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class GameOverManager : MonoBehaviour
         //timeText.text = "Time : \n" + TimeManager.Instance.timerText.text;
         waveText.text = "Wave : " + (EnemySpawner.Instance.currentWaveCount + 1).ToString();
         scoreText.text = "Score : \n" + GameManager.Instance.score.ToString();
+
+        mainMenuButton.gameObject.SetActive(true);
     }
 
     public void ReturnToMain()

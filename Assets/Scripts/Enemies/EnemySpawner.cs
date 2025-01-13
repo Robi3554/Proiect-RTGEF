@@ -140,18 +140,37 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void ResetAllSpawnCounts()
+    {
+        foreach (var wave in waves)
+        {
+            wave.spawnCount = 0;
+            foreach (var enemyGroup in wave.enemyGroups)
+            {
+                enemyGroup.spawnCount = 0;
+            }
+        }
+
+        Debug.Log("All spawn counts reset as waves start over.");
+    }
+
     private IEnumerator BeginNextWave()
     {
         isTransitioningWave = true;
 
         yield return new WaitForSeconds(waveInterval);
 
-        if (currentWaveCount < waves.Count - 1 &&
-            waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota &&
+        if (waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota &&
             enemiesAlive == 0)
         {
             currentWaveCount++;
 
+            if (currentWaveCount >= waves.Count)
+            {
+                currentWaveCount = 0;
+                GameManager.Instance.IncreaseMultiplier(0.5f);
+                ResetAllSpawnCounts();
+            }
             foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
             {
                 enemyGroup.spawnCount = 0;
@@ -159,10 +178,9 @@ public class EnemySpawner : MonoBehaviour
             waves[currentWaveCount].spawnCount = 0;
 
             CalculateWaveQuota();
-            GameManager.Instance.IncreaseMultiplier(0.1f);
-
         }
 
+        Debug.Log($"Transitioning to wave {currentWaveCount + 1}. Enemies alive: {enemiesAlive}");
         isTransitioningWave = false;
     }
 }

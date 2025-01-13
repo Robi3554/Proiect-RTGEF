@@ -10063,7 +10063,7 @@ MonoBehaviour:
   - waveName: Wave2
     enemyGroups:
     - enemyName: Enemy
-      enemyCount: 50
+      enemyCount: 60
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
@@ -10072,11 +10072,11 @@ MonoBehaviour:
   - waveName: Wave3
     enemyGroups:
     - enemyName: Enemy
-      enemyCount: 65
+      enemyCount: 55
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     - enemyName: Shooting Enemy
-      enemyCount: 35
+      enemyCount: 25
       spawnCount: 0
       enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
     waveQuota: 0
@@ -10085,11 +10085,11 @@ MonoBehaviour:
   - waveName: Wave4
     enemyGroups:
     - enemyName: Shooting Enemy
-      enemyCount: 55
+      enemyCount: 2
       spawnCount: 0
       enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
     - enemyName: Enemy
-      enemyCount: 90
+      enemyCount: 50
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
@@ -10097,14 +10097,61 @@ MonoBehaviour:
     spawnCount: 0
   - waveName: Wave5
     enemyGroups:
-    - enemyName: Shooting Enemy
-      enemyCount: 80
+    - enemyName: Dashing Enemy
+      enemyCount: 30
       spawnCount: 0
-      enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
+      enemyPrefab: {fileID: 5118765168245705288, guid: 74cfbc77a96f9514cb0192727a03c146, type: 3}
     - enemyName: Enemy
-      enemyCount: 120
+      enemyCount: 70
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
+    waveQuota: 0
+    spawnInterval: 1
+    spawnCount: 0
+  - waveName: Wave6
+    enemyGroups:
+    - enemyName: Dashing Enemy
+      enemyCount: 65
+      spawnCount: 0
+      enemyPrefab: {fileID: 5118765168245705288, guid: 74cfbc77a96f9514cb0192727a03c146, type: 3}
+    - enemyName: Enemy
+      enemyCount: 80
+      spawnCount: 0
+      enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
+    waveQuota: 0
+    spawnInterval: 1
+    spawnCount: 0
+  - waveName: Wave7
+    enemyGroups:
+    - enemyName: Dashing Enemy
+      enemyCount: 50
+      spawnCount: 0
+      enemyPrefab: {fileID: 5118765168245705288, guid: 74cfbc77a96f9514cb0192727a03c146, type: 3}
+    - enemyName: Enemy
+      enemyCount: 70
+      spawnCount: 0
+      enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
+    - enemyName: Shooting Enemy
+      enemyCount: 40
+      spawnCount: 0
+      enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
+    waveQuota: 0
+    spawnInterval: 1
+    spawnCount: 0
+  - waveName: Wave8
+    enemyGroups:
+    - enemyName: Dashing Enemy
+      enemyCount: 70
+      spawnCount: 0
+      enemyPrefab: {fileID: 5118765168245705288, guid: 74cfbc77a96f9514cb0192727a03c146, type: 3}
+    - enemyName: Enemy
+      enemyCount: 100
+      spawnCount: 0
+      enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
+    - enemyName: Shooting Enemy
+      enemyCount: 60
+      spawnCount: 0
+      enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
     waveQuota: 0
     spawnInterval: 1
     spawnCount: 0
@@ -10201,6 +10248,7 @@ MonoBehaviour:
   fade: {fileID: 1767387381}
   waveText: {fileID: 794617555}
   scoreText: {fileID: 1987431825}
+  mainMenuButton: {fileID: 1052566060}
 --- !u!1001 &1192686214
 PrefabInstance:
   m_ObjectHideFlags: 0
