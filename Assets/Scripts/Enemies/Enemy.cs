@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,6 +7,7 @@ public class Enemy : MonoBehaviour
     protected Transform target;
     protected Rigidbody2D rb;
     protected Animator anim;
+    protected DropRateManager drm;
 
     [SerializeField]
     private EnemySO enemySO;
@@ -26,6 +25,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        drm = GetComponent<DropRateManager>();
     }
 
     protected virtual void Start()
@@ -107,5 +107,6 @@ public class Enemy : MonoBehaviour
     {
         GameManager.Instance.IncreaseScore(scoreToIncrease);
         EnemySpawner.Instance.OnEnemyKilled();
+        drm.TriggerDeath();
     }
 }

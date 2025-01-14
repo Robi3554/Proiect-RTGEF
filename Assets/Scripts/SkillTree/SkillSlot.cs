@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 
 public class SkillSlot : MonoBehaviour
 {
@@ -32,13 +31,10 @@ public class SkillSlot : MonoBehaviour
     {
         if (ValidationChecks())
         {
-            EditorApplication.delayCall += () =>
-            {
-                if (this != null)
-                {
-                    UpdateUI();
-                }
-            };
+             if (this != null)
+             {
+                 UpdateUI();
+             }
         }
     }
 

@@ -124,6 +124,7 @@ public class ProjectileWeapon : PlayerBasicWeapon
         }
 
         shotProjectile.GetComponent<ProjectileScript>().FireProjectile(CheckDamage(damage), projectileSpeed, range, pierce);
+        AudioManager.Instance.PlaySFXClip(AudioManager.Instance.shooting);
     }
 
     public void AddSpecialProjectile(GameObject projectile)

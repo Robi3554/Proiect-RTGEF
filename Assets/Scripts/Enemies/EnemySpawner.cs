@@ -160,8 +160,7 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(waveInterval);
 
-        if (waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota &&
-            enemiesAlive == 0)
+        if (waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota && enemiesAlive == 0)
         {
             currentWaveCount++;
 
@@ -178,6 +177,7 @@ public class EnemySpawner : MonoBehaviour
             waves[currentWaveCount].spawnCount = 0;
 
             CalculateWaveQuota();
+            maxEnemiesAllowed += 5;
         }
 
         Debug.Log($"Transitioning to wave {currentWaveCount + 1}. Enemies alive: {enemiesAlive}");

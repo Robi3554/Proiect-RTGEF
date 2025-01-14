@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da75d5dfad074645a4c13c1adcc7855, type: 3}
   m_Name: Shooting Enemy
   m_EditorClassIdentifier: 
-  health: 60
+  health: 50
   damage: 10
   speed: 5
   range: 30
