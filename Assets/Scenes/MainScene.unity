@@ -10332,7 +10332,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave2
     enemyGroups:
@@ -10341,7 +10341,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave3
     enemyGroups:
@@ -10354,7 +10354,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave4
     enemyGroups:
@@ -10367,7 +10367,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave5
     enemyGroups:
@@ -10380,7 +10380,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave6
     enemyGroups:
@@ -10393,7 +10393,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 8458452831490176800, guid: 3dbbd7d78452a95419376be7d9b0395a, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave7
     enemyGroups:
@@ -10410,7 +10410,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   - waveName: Wave8
     enemyGroups:
@@ -10427,7 +10427,7 @@ MonoBehaviour:
       spawnCount: 0
       enemyPrefab: {fileID: 7054313521904465374, guid: 9ba438c4824940944a3152dc54d7c113, type: 3}
     waveQuota: 0
-    spawnInterval: 1
+    spawnInterval: 3
     spawnCount: 0
   currentWaveCount: 0
   waveInterval: 4
